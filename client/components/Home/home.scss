@@ -1,0 +1,16 @@
+@import '../../stylesheets/theme';
+
+
+.body {
+  background: theme( background );
+  color: theme( text );
+  display: flex;
+  flex: 1;
+  flex-flow: column nowrap;
+  overflow-y: auto;
+}
+
+.title {
+  margin-left: auto;
+  margin-right: auto;
+}

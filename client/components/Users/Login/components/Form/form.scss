@@ -1,0 +1,82 @@
+@import '../../../../../stylesheets/theme';
+
+$border: solid 1px hsla( 0, 0, 0, 0.2 );
+$padding: 0.5rem;
+$transitionDelay: 350ms;
+
+
+.body {
+  border: $border;
+
+  & > legend {
+    color: rgba( theme( text ), 0.66 );
+    font-size: 0.875rem;
+    font-weight: bold;
+    padding-left: $padding;
+    margin-bottom: 1rem;
+    padding-right: $padding;
+    transition: color $transitionDelay;
+  }
+
+  &__error {
+    border: 1px solid theme( error );
+    & > legend { color: theme( error )}
+  }
+
+  &__success {
+    border: 1px solid theme( success );
+    & > legend { color: theme( success )}
+  }
+}
+
+.btn {
+  $transition-speed: 200ms;
+  background: none;
+  border: none;
+  border-radius: 0;
+  display: block;
+  color: rgba( theme( text ), 0.6 );
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 1rem 0;
+  position: relative;
+  transition: background $transition-speed, color $transition-speed;
+  width: 100%;
+
+  &:focus,
+  &:hover {
+    color: theme( text );
+  };
+
+  &:active {
+    color: rgba( theme( text ), 0.25 );
+  }
+
+  &_help {
+    color: rgba( theme( text ), 0.4 );
+    font-size: 0.5rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate3d( 0, -50%, 0 );
+
+    .btn:hover > &,
+    .btn:focus > & {
+      color: rgba( theme( text ), 0.66 );
+    }
+  }
+}
+
+.input {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  max-width: 24rem;
+  text-align: center;
+
+  & > input,
+  & > textarea {
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,38 @@
+@import '../../var';
+@import '../../../../stylesheets/theme';
+
+
+.body {
+  $border-style: 1px solid;
+  $border: $border-color $border-style;
+  $selected-border: $border-style theme( light );
+
+  border-left: $border;
+  border-right: $border;
+  color: rgba( theme( text ), 0.5 );
+  cursor: pointer;
+  user-select: none;
+  padding: 0.5rem 1rem;
+  white-space: pre;
+
+  &:first-child {
+    border-top: $border;
+  }
+
+  &:last-child {
+    border-bottom: $border;
+  }
+
+  &:focus,
+  &:hover {
+    color: theme( text );
+  }
+
+  &:active {
+    color: rgba( theme( text ), 0.25 );
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

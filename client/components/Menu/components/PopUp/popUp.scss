@@ -1,0 +1,13 @@
+@import '../../../../stylesheets/theme';
+
+
+.body {
+  box-shadow: 1px 1px 5px #000;
+  display: none;
+  background: theme( background );
+  color: theme( text );
+  position: absolute;
+  right: 25%;
+  top: 25%;
+  z-index: 90;
+}

@@ -1,0 +1,38 @@
+@import './var';
+@import '../../stylesheets/utility/functions';
+@import '../../stylesheets/theme';
+
+
+.body {
+  margin-left: auto;
+  position: relative;
+  z-index: 10;
+
+  &:focus,
+  &:hover {
+    background: $hover-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.icon {
+  &_wrapper {
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+    padding: 0.875rem;
+    transition: $hover-transition;
+    width: 3rem;
+    z-index: 20;
+  }
+}
+
+
+//noinspection ALL
+:export {
+  borderColor: $border-color;
+  hoverColor: $hover-color;
+}

@@ -1,0 +1,52 @@
+@import '../utility/functions';
+
+
+$colors: (
+  background: hsl( 0, 0, 95% ),
+  error: firebrick,
+  success: forestgreen,
+  primary : (
+    default   : rgb( 255, 79, 167 ),
+    //light     : #6d6d6d,
+    //lighter   : #c6c6c6,
+    //lightest  : #f5f5f5,
+    //dark      : #282828,
+    //darker    : #1b1b1b,
+    //darkest   : #000,
+    text      : #000,
+  ),
+  ui : (
+    likeLit: #ff384c,
+  ),
+);
+
+
+@function theme( $type: 'default', $key: 'primary' ) {
+  // Palette colors are nested
+  @if $type == 'default' or
+      $type == 'light' or
+      $type == 'lighter' or
+      $type == 'lightest' or
+      $type == 'dark' or
+      $type == 'darker' or
+      $type == 'darkest' or
+      $type == 'text' {
+    $map: map-get( $colors, $key );
+    @return map-get( $map, $type );
+  }
+
+  @else {
+    @return map-get( $colors, $type );
+  }
+}
+
+
+//$font-color: #3f374d;
+$font-color: #222;
+$bg-color: hsl(0, 0, 90);
+
+$default-font-size: 16px;
+
+$header-height: 3.25rem;
+//$fullscreen: calc( 100vh - #{ $header-height });
+$fullscreen: 100vh;

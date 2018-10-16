@@ -1,0 +1,27 @@
+@import '../../../stylesheets/theme';
+
+
+.body {
+  display: flex;
+  flex-flow: column nowrap;
+  height: $fullscreen;
+}
+
+.filler {
+  align-items: center;
+  color: rgba( theme( text ), 0.5 );
+  display: flex;
+  flex: 1;
+  flex-flow: column nowrap;
+  font-weight: bold;
+  justify-content: center;
+
+  &_icon {
+    $size: 100px;
+
+    fill: rgba( theme( text ), 0.5 );
+    height: $size;
+    margin-bottom: 1.5rem;
+    width: $size;
+  }
+}

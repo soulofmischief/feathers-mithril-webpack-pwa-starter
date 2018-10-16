@@ -1,0 +1,26 @@
+@import '../../stylesheets/theme';
+
+.body {
+  align-items: center;
+  background: #fff;
+  box-shadow: 1px 1px 4px #000;
+  color: rgba( theme( text ), 0.875 );
+  display: flex;
+  flex-flow: row nowrap;
+  font-weight: bold;
+  min-height: 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  user-select: none;
+  width: 100%;
+}

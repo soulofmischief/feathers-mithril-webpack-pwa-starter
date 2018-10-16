@@ -1,0 +1,56 @@
+@import '../../../../stylesheets/media';
+@import '../../../../stylesheets/theme';
+@import '../../../../stylesheets/utility/functions';
+
+$border: solid 1px hsla( 0, 0, 0, 0.1 );
+$padding: 0.5rem;
+
+.body {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: $padding;
+
+  &:nth-child( odd ) {
+    $midPointPosition: 100px;
+    $highlightPercentage: 3%;
+
+    $bgColor: theme( background );
+    $highlightColor: shade( theme( background ), $highlightPercentage );
+
+    background: linear-gradient(
+      to right,
+      $highlightColor 0%,
+      $highlightColor $midPointPosition,
+      $bgColor 100%
+    );
+  }
+}
+
+.avatar {
+  $size: 60px;
+
+  border-radius: 2px;
+  height: $size;
+  width: $size;
+}
+
+.content {
+  margin-left: $padding;
+
+  &_name {
+    color: rgba( theme( text ), 0.9 );
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+  }
+
+  &_time {
+    color: rgba( theme( text ), 0.5 );
+    font-size: 0.675rem;
+    margin-left: 0.5rem;
+  }
+
+  &_text {
+    color: rgba( theme( text ), 0.875 );
+    white-space: pre-line;
+  }
+}

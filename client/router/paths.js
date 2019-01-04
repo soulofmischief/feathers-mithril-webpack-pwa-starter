@@ -20,4 +20,4 @@ export const goTo = Object
       m.route.set( path[1], data, options )
 
     return goTo
-  }, {})
+  }, ({}: {[string]: () => * }))

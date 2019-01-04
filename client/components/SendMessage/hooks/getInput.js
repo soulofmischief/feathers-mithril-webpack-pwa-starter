@@ -1,6 +1,9 @@
-
+// @flow strict
 // Files with hooks we don't want to inject into the component
 // are differentiated by a leading underscore.
-export function getInput( vnode ) {
-  return vnode.dom.querySelector( '[data-name=message-input]' )
+import type { Vnode } from 'Flow'
+
+export function getInput({ dom }: Vnode ): ?HTMLInputElement {
+  /* $FlowFixMe optional */
+  return dom?.querySelector( '[data-name=message-input]' )
 }

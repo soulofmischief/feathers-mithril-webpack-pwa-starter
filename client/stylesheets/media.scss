@@ -1,31 +1,51 @@
 $phoneOnly: 599px;
 $tabletPortraitUp: 600px;
 $tabletLandscapeUp: 900px;
-$tabletLandscapeDown: 1199px;
 $desktopUp: 1200px;
 $bigDesktopUp: 1800px;
 
 
 @mixin for-phone-only {
-  @media (max-width: $phoneOnly) { @content }
+  @media only screen and ( max-width: $phoneOnly ) { @content }
 }
+
 
 @mixin for-tablet-portrait-up {
-  @media (min-width: $tabletPortraitUp) { @content }
+  @media only screen and ( min-width: $tabletPortraitUp ) { @content }
 }
 
+@mixin for-tablet-portrait-down {
+  @media only screen and ( max-width: $tabletLandscapeUp - 1px ) { @content }
+}
+
+
 @mixin for-tablet-landscape-up {
-  @media (min-width: $tabletLandscapeUp) { @content }
+  @media only screen and ( min-width: $tabletLandscapeUp ) { @content }
 }
 
 @mixin for-tablet-landscape-down {
-  @media (max-width: $tabletLandscapeDown ) { @content }
+  @media only screen and ( max-width: $desktopUp - 1px ) { @content }
 }
 
+
 @mixin for-desktop-up {
-  @media (min-width: $desktopUp) { @content }
+  @media only screen and ( min-width: $desktopUp ) { @content }
 }
 
 @mixin for-big-desktop-up {
-  @media (min-width: $bigDesktopUp) { @content }
+  @media only screen and ( min-width: $bigDesktopUp ) { @content }
+}
+
+
+@mixin media ( $min-width ) {
+  @media only screen and ( min-width: #{ $min-width }) { @content }
+}
+
+
+@mixin landscape {
+  @media only screen and ( orientation: landscape ) { @content }
+}
+
+@mixin portrait {
+  @media only screen and ( orientation: portrait ) { @content }
 }

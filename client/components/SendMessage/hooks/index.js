@@ -10,12 +10,14 @@ import {
 
 function oncreate( v ) {
   // Add listeners to update text area on key events and focus.
-  const input = getInput( v )
+  const input: ?HTMLInputElement = getInput( v )
 
-  input.addEventListener( 'focus', handleTextAreaFocus.bind( v ))
-  input.addEventListener( 'input', handleTextAreaInput.bind( v ))
-  input.addEventListener( 'keydown', handleTextAreaKeys.bind( v ))
-  input.focus()
+  if ( input ) {
+    input.addEventListener( 'focus', handleTextAreaFocus.bind( v ))
+    input.addEventListener( 'input', handleTextAreaInput.bind( v ))
+    input.addEventListener( 'keydown', handleTextAreaKeys.bind( v ))
+    input.focus()
+  }
 }
 
 

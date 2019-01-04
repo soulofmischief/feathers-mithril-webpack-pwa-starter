@@ -10,6 +10,5 @@ declare module.exports: {|
   +'empty': string;
   +'empty_icon': string;
   +'get': string;
-  +'message': string;
-  +'message_container': string;
+  +'messageContainer': string;
 |};

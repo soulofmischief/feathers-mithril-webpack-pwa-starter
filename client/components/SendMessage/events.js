@@ -1,3 +1,4 @@
+// @flow strict
 import m from 'mithril'
 import { createMessage } from './hooks/createMessage'
 
@@ -11,14 +12,20 @@ export async function handleTextAreaFocus() {
   this.state.error = null
 
   // Update UI
-  m.redraw()
+  //m.redraw()
 }
 
+/**
+ * @this {Vnode}
+ */
+export async function handleTextAreaInput( e: Event ) {
+  const target = e.currentTarget
 
-export async function handleTextAreaInput( e ) {
-  // Update height
-  e.target.style.height = 'auto'
-  e.target.style.height = ( e.target.scrollHeight ) + 'px'
+  if ( target instanceof HTMLInputElement ) {
+    // Update height
+    target.style.height = 'auto'
+    target.style.height = ( target.scrollHeight ) + 'px'
+  }
 
   // Reset error state
   this.state.error = null
@@ -28,7 +35,7 @@ export async function handleTextAreaInput( e ) {
 }
 
 
-export async function handleTextAreaKeys( e ) {
+export async function handleTextAreaKeys( e: KeyboardEvent ) {
   // Submit on Ctrl + Enter
   if ( e.ctrlKey && e.keyCode === 13 )
     await createMessage.call( this )

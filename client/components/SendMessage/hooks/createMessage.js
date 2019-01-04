@@ -1,3 +1,4 @@
+// @flow strict
 /* eslint-disable no-console */
 import m from 'mithril'
 import { client } from 'Client'
@@ -15,6 +16,7 @@ const
   // to normal after a message has been sent.
   disableSentFlagDelay = 2000
 
+
 /**
  * Create a message on the server.
  * @this {Vnode}
@@ -23,63 +25,63 @@ export async function createMessage() {
   init( this )
 
   const input = getInput( this )
+  if ( input ) {
+    try {
+      const startTime = performance.now()
 
-  try {
-    const startTime = performance.now()
+      // Create message
+      await client.service( 'messages' ).create({
+        user: 'User',
+        text: String( input.value )
+      })
 
-    // Create message
-    await client.service( 'messages' ).create({
-      user: 'User',
-      text: String( input.value )
-    })
+      // Wait for the provided delay, but subtract the amount of time it's
+      // taken to wait for the input. A negative delay doesn't make sense.
+      await timeout(
+        Math.max( 0, requestDelay - ( performance.now() - startTime ))
+      )
 
-    // Wait for the provided delay, but subtract the amount of time it's taken
-    // to wait for the input. A negative delay doesn't make sense.
-    await timeout(
-      Math.max( 0, requestDelay - ( performance.now() - startTime ))
-    )
+      // Set state
+      this.state.error = null
+      this.state.isSent = true
 
-    // Set state
-    this.state.error = null
-    this.state.isSent = true
+      // Disable isSent flag after a delay
+      setTimeout(() => {
+        this.state.isSent = false
+        m.redraw()
+      }, disableSentFlagDelay )
 
-    // Disable isSent flag after a delay
-    setTimeout(() => {
-      this.state.isSent = false
-      m.redraw()
-    }, disableSentFlagDelay )
+      await terminate( this )
+    }
 
-    terminate( this )
+    catch ( e ) {
+      // Propagate error
+      console.error( e )
 
-    // Update UI
-    m.redraw()
+      // Set state
+      this.state.error = e
+      await terminate( this )
+    }
 
-    input.focus()
+    // Reset input
+    input.value = ''
   }
-
-  catch ( e ) {
-    // Propagate error
-    console.error( e )
-
-    // Set state
-    this.state.error = e
-    terminate( this )
-
-    // Update UI
-    m.redraw()
-
-    input.focus()
-  }
-
-  // Reset input
-  input.value = ''
 }
+
 
 function init( v ) {
   v.state.isSending = true
 }
 
-function terminate( v ) {
+
+async function terminate( v ) {
   v.state.isSending = false
-  getInput( v ).focus()
+
+  // Update UI
+  m.redraw()
+
+  // Fix race bug where input doesn't always focus after error.
+  await timeout( 100 )
+  /* $FlowFixMe optional */
+  getInput( v )?.focus()
 }

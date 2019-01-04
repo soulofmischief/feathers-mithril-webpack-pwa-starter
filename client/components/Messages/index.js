@@ -2,10 +2,12 @@
 // @jsx m
 import m from 'mithril'
 import { Icon } from 'Components/Icon'
+import { Message } from './components/Message'
 import { hooks } from './hooks'
-import { getDayAndTime } from 'Lib/dates'
 import style from './messages.scss'
-import { Message } from 'Components/Messages/components/Message'
+
+import type { Vnode } from 'Flow'
+
 
 /** Fetches and displays a list of recent messages */
 export function Messages() { return {
@@ -17,14 +19,14 @@ export function Messages() { return {
   /** Reference to message service subscriber */
   MessageService: null,
 
-  view() { return (
+  view({ attrs }: Vnode ) { return (
     <div
       class={ this.messages.data.length ? style.body : style.empty }
       key="messages"
       data-name="messages"
     >
       { this.messages.data.length ?
-        <div class={ style.message_container }>
+        <div class={ style.messageContainer }>
           { this.messages.data.map( msg =>
             <Message message={ msg } key={ m.id }/>
           )}

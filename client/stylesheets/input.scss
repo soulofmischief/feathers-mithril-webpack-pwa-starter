@@ -1,5 +1,11 @@
+@import './theme';
+
+
 input, textarea {
+  background: theme( input );
   padding: 0.5rem;
 }
 
-label {}
+label {
+
+}

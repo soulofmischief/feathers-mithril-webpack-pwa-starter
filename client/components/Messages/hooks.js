@@ -5,6 +5,7 @@ import { client } from 'Client'
 import { scrollToBottom } from 'Lib/mithril'
 
 import type { Vnode } from 'Flow'
+import { User } from 'Models/User'
 
 
 async function oninit( v: Vnode ) {

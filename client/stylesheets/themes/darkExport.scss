@@ -1,0 +1,36 @@
+@import './dark';
+
+//noinspection CssInvalidPseudoSelector,CssUnknownProperty
+:export {
+  /**
+   * Nested map lookups must be done manually, since it seems trying to use
+   * theme() directly causes issues possibly related to String casting.
+   */
+
+
+  // Convert to pixels by multiplying by font size
+  headerHeight: $header-height / 1rem * $default-font-size / 1px;
+
+  primary: map-get( map-get( $colors, primary ), default );
+  primaryLight: map-get( map-get( $colors, primary ), light );
+  primaryLighter: map-get( map-get( $colors, primary ), lighter );
+  primaryLightest: map-get( map-get( $colors, primary ), lightest );
+  primaryDark: map-get( map-get( $colors, primary ), dark );
+  primaryDarker: map-get( map-get( $colors, primary ), darker );
+  primaryDarkest: map-get( map-get( $colors, primary ), darkest );
+
+  secondary: map-get( map-get( $colors, secondary ), default );
+  secondaryLight: map-get( map-get( $colors, secondary ), light );
+  secondaryLighter: map-get( map-get( $colors, secondary ), lighter );
+  secondaryLightest: map-get( map-get( $colors, secondary ), lightest );
+  secondaryDark: map-get( map-get( $colors, secondary ), dark );
+  secondaryDarker: map-get( map-get( $colors, secondary ), darker );
+  secondaryDarkest: map-get( map-get( $colors, secondary ), darkest );
+
+  text: map-get( map-get( $colors, text ), default );
+  textDark: map-get( map-get( $colors, text ), dark );
+
+  themeType: $theme-type;
+
+  uiLikeLit: map-get( map-get( $colors, ui ), likeLit );
+}

@@ -1,1 +1,15 @@
-@import 'themes/default';
+@import 'themes/dark';
+
+
+@function overlay( $amount: 0.5 ) {
+  // Return a semi-transparent rgba value based on the theme type.
+  // Useful for creating variations in background color which depend
+  // on the underlying color.
+  @if $theme-type == 'light' {
+    @return rgba( #000, $amount );
+  }
+
+  @else {
+    @return rgba( #fff, $amount );
+  }
+}

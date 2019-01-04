@@ -65,7 +65,6 @@ export function Form() { return {
           onkeydown={ doOnConfirm( this.logIn.bind( v ))}
         >
           { b[0] }
-
           <div class={ style.btn_help }>{ b[2] }</div>
         </button>
       ))}

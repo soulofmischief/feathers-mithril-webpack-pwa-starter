@@ -2,7 +2,7 @@
 
 .body {
   align-items: center;
-  background: #fff;
+  background: overlay( 0.2 );
   box-shadow: 1px 1px 4px #000;
   color: rgba( theme( text ), 0.875 );
   display: flex;
@@ -14,13 +14,19 @@
 }
 
 .title {
-  display: flex;
   align-items: center;
-  justify-content: center;
+  display: flex;
+  font-size: 1.125rem;
   height: 100%;
+  justify-content: center;
   left: 0;
   position: absolute;
   top: 0;
   user-select: none;
   width: 100%;
+}
+
+.username {
+  font-size: 0.875rem;
+  margin-left: 1rem;
 }

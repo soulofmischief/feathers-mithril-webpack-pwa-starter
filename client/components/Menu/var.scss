@@ -1,6 +1,7 @@
+@import '../../stylesheets/theme';
 
 $border-color: shade( theme( background ), 25% );
 
-$hover-color: rgba( #000, 0.1 );
+$hover-color: overlay( 0.2 );
 
 $hover-transition: background-color 400ms cubic-bezier(0.23, 1, 0.32, 1);

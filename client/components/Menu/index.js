@@ -15,9 +15,7 @@ import style from './menu.scss'
 import type { Component } from 'Flow'
 
 
-type MenuComponent = Component & {
-  items: Array<[ string, () => mixed, string ]>,
-}
+type MenuComponent = Component & {}
 
 
 export function Menu(): MenuComponent {

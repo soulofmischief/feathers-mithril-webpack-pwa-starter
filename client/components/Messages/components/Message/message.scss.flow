@@ -3,7 +3,10 @@
 declare module.exports: {|
   +'avatar': string;
   +'body': string;
+  +'body__mine': string;
+  +'body__theirs': string;
   +'content': string;
+  +'content_header': string;
   +'content_name': string;
   +'content_text': string;
   +'content_time': string;

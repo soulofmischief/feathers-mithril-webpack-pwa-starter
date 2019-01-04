@@ -6,7 +6,6 @@ $border: solid 1px hsla( 0, 0, 0, 0.1 );
 $padding: 0.5rem;
 
 .body {
-  font-size: 0.875rem;
   height: 100%;
   overflow-y: auto;
   width: 100%;
@@ -47,7 +46,6 @@ $padding: 0.5rem;
   color: rgba( theme( text ), 0.5 );
   display: flex;
   flex-flow: column nowrap;
-  font-size: 0.875rem;
   font-weight: bold;
   height: 100%;
   justify-content: center;
@@ -69,7 +67,6 @@ $padding: 0.5rem;
 
   color: rgba( theme( text ), 0.75 );
   cursor: pointer;
-  font-size: 0.875rem;
   font-weight: bold;
   padding: 1rem 0;
   transition: background $transition-speed, color $transition-speed;
@@ -80,30 +77,9 @@ $padding: 0.5rem;
   &:hover { color: rgba( theme( text ), 0.5 )}
 }
 
-.message {
+.messageContainer {
   display: flex;
-  flex-flow: row nowrap;
-  padding: $padding;
-
-  &:nth-child( odd ) {
-    $midPointPosition: 100px;
-    $highlightPercentage: 3%;
-
-    $bgColor: theme( background );
-    $highlightColor: shade( theme( background ), $highlightPercentage );
-
-    background: linear-gradient(
-        to right,
-        $highlightColor 0%,
-        $highlightColor $midPointPosition,
-        $bgColor 100%
-    );
-  }
-
-  &_container {
-    display: flex;
-    flex-flow: column nowrap;
-    min-height: 100%;
-    justify-content: flex-end;
-  }
+  flex-flow: column nowrap;
+  min-height: 100%;
+  justify-content: flex-end;
 }

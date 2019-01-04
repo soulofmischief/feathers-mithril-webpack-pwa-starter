@@ -7,10 +7,10 @@ $transitionDelay: 350ms;
 
 .body {
   border: $border;
+  padding: 0;
 
   & > legend {
     color: rgba( theme( text ), 0.66 );
-    font-size: 0.875rem;
     font-weight: bold;
     padding-left: $padding;
     margin-bottom: 1rem;
@@ -37,9 +37,8 @@ $transitionDelay: 350ms;
   display: block;
   color: rgba( theme( text ), 0.6 );
   cursor: pointer;
-  font-size: 0.875rem;
   font-weight: bold;
-  padding: 1rem 0;
+  padding: 1rem $padding;
   position: relative;
   transition: background $transition-speed, color $transition-speed;
   width: 100%;
@@ -47,7 +46,8 @@ $transitionDelay: 350ms;
   &:focus,
   &:hover {
     color: theme( text );
-  };
+    background: overlay( 0.1 );
+  }
 
   &:active {
     color: rgba( theme( text ), 0.25 );
@@ -55,9 +55,9 @@ $transitionDelay: 350ms;
 
   &_help {
     color: rgba( theme( text ), 0.4 );
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     position: absolute;
-    right: 0;
+    right: $padding;
     top: 50%;
     transform: translate3d( 0, -50%, 0 );
 

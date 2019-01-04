@@ -1,3 +1,4 @@
+// @flow strict
 /*
 * Base Model class
 *
@@ -6,7 +7,5 @@
 * */
 
 export class Model {
-  constructor() {
-
-  }
+  constructor() {}
 }

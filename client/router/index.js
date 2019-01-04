@@ -1,6 +1,6 @@
 // @flow strict
 import m from 'mithril'
-import { routes } from './routes'
+import { routes } from './routes/index.js'
 
 // Define root
 const root = document.querySelector( '#root' )

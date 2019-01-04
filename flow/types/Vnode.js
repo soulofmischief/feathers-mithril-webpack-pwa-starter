@@ -1,8 +1,8 @@
 // @flow strict
 export type Vnode = {
-  tag: {} | string,
+  tag?: {} | string,
   key?: string,
-  attrs?: {},
+  attrs: Object,
   children?: [] | string | number | boolean,
   text?: string | number | boolean,
   dom?: HTMLElement,

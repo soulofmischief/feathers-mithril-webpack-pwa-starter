@@ -1,10 +1,11 @@
+// @flow strict
 // Set up socket.io connection
 import io from 'socket.io-client'
 import feathers from '@feathersjs/client'
 import rx from 'feathers-reactive'
 
 
-const socket = io( process.env.FEATHERS_API )
+const socket = io( process.env.FEATHERS_API || '' )
 
 
 // Configure and export client

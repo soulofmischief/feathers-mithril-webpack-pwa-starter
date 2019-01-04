@@ -1,7 +1,6 @@
 // @flow strict
 import md5 from 'crypto-js/md5'
-import { oneLineTrim } from 'common-tags'
-
+import nanoid from 'nanoid'
 
 const
   // Gravatar URL prefix
@@ -31,22 +30,13 @@ export function getDefaultAvatar( str, {
 
 
 /**
- * Generate random short ID.
+ * Generate random short ID using nanoid.
  * Useful for namespacing IDs for forms, menus, etc.
  */
 export function shortID(
   { underscore = false }: {
     underscore: boolean // Append underscore to ID
   } = {}
-): string {
-  /*
-   * 1. Generate random float
-   * 2. Clamp to (0, 1) (0 or 1 returns a blank string in step 3)
-   * 3. Convert to base 36 (JS black magic)
-   * 4. Get a substring
-   */
-  return oneLineTrim`
-    ${ underscore ? `__` : `` }
-    ${ Math.max( 0.000000000001, Math.random()).toString( 36 ).substr( 2, 6 )}
-  `
+) {
+  return underscore ? `_${ nanoid( 6 )}` : nanoid( 6 )
 }

@@ -8,9 +8,11 @@ $border: solid 1px hsla( 0, 0, 0, 0.1 );
 $padding: 0.5rem;
 
 .body {
+  --bg-color: overlay( 0.2 );
+
   @include boxShadow( 1 );
 
-  background: overlay( 0.2 );
+  background: var( --bg-color );
   border-radius: 16px;
   display: flex;
   flex-flow: row nowrap;
@@ -20,11 +22,12 @@ $padding: 0.5rem;
   width: fit-content;
 
   &__mine {
+    background: overlay( 0.2 );
     margin-left: auto;
   }
 
   &__theirs {
-    background: overlay( 0.1 );
+    //background: overlay( 0.1 );
   }
 }
 

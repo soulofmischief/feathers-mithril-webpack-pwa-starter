@@ -2,7 +2,9 @@
 // @jsx m
 import m from 'mithril'
 import { oneLine } from 'common-tags'
+import { hsl } from 'Lib/color'
 import { getDayAndTime } from 'Lib/dates'
+import { getNumericalHash } from 'Lib/strings'
 import { User } from 'Models/User'
 import style from './message.scss'
 
@@ -21,7 +23,13 @@ export function Message({ attrs }: Vnode ) { return {
           : style.body__theirs
         }
       `}
-      key={ attrs.message._id }>
+
+      style={`--bg-color: ${
+        hsl( getNumericalHash( attrs.message.user.username ), 50, 30 )
+      }`}
+
+      key={ attrs.message._id }
+    >
       <img
         alt=""
         class={ style.avatar }

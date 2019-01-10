@@ -12,16 +12,12 @@ import paths from '../../paths'
 // Configure environment variables
 dotenv.config()
 
-
-export const
-  devMode = process.env.NODE_ENV !== 'production'
-
+export const devMode = process.env.NODE_ENV !== 'production'
 
 export const webpackConfig = {
   context: paths.client,
   entry: {
     app: './index.js',
-    //worker: 'webpack-dev-server/client',
   },
   mode: process.env.NODE_ENV,
   optimization,

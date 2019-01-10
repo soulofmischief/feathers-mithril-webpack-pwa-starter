@@ -2,7 +2,7 @@
 import { alias } from './alias'
 import { rules } from './rules'
 import { optimization } from './optimization'
-import { paths } from './paths'
+import { output } from './output'
 import { plugins } from './plugins'
 import dotenv from 'dotenv-safe'
 

@@ -6,6 +6,7 @@ import { paths } from './paths'
 import { plugins } from './plugins'
 import dotenv from 'dotenv-safe'
 
+import paths from '../../paths'
 
 // Configure environment variables
 dotenv.config()

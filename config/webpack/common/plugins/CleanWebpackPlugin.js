@@ -1,5 +1,5 @@
 import CleanWebpackPlugin from 'clean-webpack-plugin'
-import { paths } from '../paths'
+import paths from '../../../paths'
 
 
 export default new CleanWebpackPlugin( paths.output, {

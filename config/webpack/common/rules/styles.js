@@ -2,7 +2,7 @@ import path from 'path'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import importOnce from 'node-sass-import-once'
 import { devMode } from '../index'
-import { paths } from '../paths'
+import paths from '../../../paths'
 
 
 /**

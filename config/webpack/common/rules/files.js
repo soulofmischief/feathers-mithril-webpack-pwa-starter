@@ -1,6 +1,6 @@
 import path from 'path'
 import { devMode } from '../index'
-import { paths } from '../paths'
+import paths from '../../../paths'
 
 
 /**

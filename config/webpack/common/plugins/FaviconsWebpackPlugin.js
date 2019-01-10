@@ -1,6 +1,6 @@
 import path from 'path'
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin'
-import { paths } from '../paths'
+import paths from '../../../paths'
 import { title } from '../index'
 
 

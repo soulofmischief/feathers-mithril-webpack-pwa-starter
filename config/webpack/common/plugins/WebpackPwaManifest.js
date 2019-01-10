@@ -1,6 +1,6 @@
 import path from 'path'
 import WebpackPwaManifest from 'webpack-pwa-manifest'
-import { paths } from '../paths'
+import paths from '../../../paths'
 import dotenv from 'dotenv-safe'
 
 

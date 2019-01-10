@@ -2,7 +2,7 @@ import path from 'path'
 import CompressionPlugin from 'compression-webpack-plugin'
 import OfflinePlugin from 'offline-plugin'
 import { webpackConfig as commonConfig } from './common'
-import { paths } from './common/paths'
+import paths from '../paths'
 
 const BundleAnalyzerPlugin =
         require( 'webpack-bundle-analyzer' ).BundleAnalyzerPlugin

@@ -27,9 +27,9 @@
   "memory": {
     "id": "_id"
   },
-  "nedb": "../../data",
+  "nedb": "../../../data/server",
   "port": 3030,
-  "public": "../../public/",
+  "public": "../../../dist/client",
   "paginate": {
     "default": 10,
     "max": 50

@@ -9,24 +9,27 @@ This progressive web application serves as an example integration of [Feathers](
 ## Getting Started
 
 
-
-## Prerequisites
+### Prerequisites
 
 1. Install [NodeJS](https://nodejs.org/) and [Yarn](https://yarnpkg.com/).
 
 2. Install project dependencies and run post-install scripts: `yarn install:all`
 
-## Development
+### Development
 
 1. Start the Feathers API server: `yarn server:dev`
 
 2. Start the client development server in another terminal window: `yarn client:dev`
 
-## Production
+### Production
 
-1. Start the Feathers API server: `yarn server`
+1. Build the Feathers API server: `yarn server:build`
 
-2. Start the client: `yarn client:build`
+2. Run the production server: `yarn server:production`
+
+3. Build the client: `yarn client:build`
+
+4. Host and navigate to `dist/client`
 
 ## Testing
 

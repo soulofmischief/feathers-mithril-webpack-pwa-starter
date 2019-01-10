@@ -24,26 +24,11 @@ export const webpackConfig = {
   },
   mode: devMode ? 'development' : 'production',
   optimization,
-  output: {
-    chunkFilename: '[name].[chunkHash].js',
-    filename: '[name].[hash].js',
-    globalObject: 'this',
-    path: paths.output,
-    publicPath: '/',
-  },
-  module: {
-    rules: rules(),
-  },
+  output,
+  module: { rules },
   node: {
     fs: 'empty'
   },
-  plugins: plugins(),
-  resolve: {
-    alias: alias(),
-    extensions: [ '.js', '.scss' ],
-    modules: [
-      paths.client,
-      'node_modules'
-    ],
-  },
+  plugins,
+  resolve,
 }

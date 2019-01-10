@@ -4,16 +4,14 @@ import { files } from './files'
 import { styles } from './styles'
 
 
-export function rules() {
-  return [
-    // JS
-    babel,
+export const rules = [
+  // JS
+  babel,
 
-    // CSS
-    cssModules,
-    styles,
+  // CSS
+  cssModules,
+  styles,
 
-    // Resources
-    files,
-  ]
-}
+  // Resources
+  files,
+]

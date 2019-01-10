@@ -8,6 +8,7 @@ const BundleAnalyzerPlugin =
 
 const webpackConfig = {
   ...commonConfig,
+  mode: 'development',
   devServer: {
     // Silence WebpackDevServer's own logs since they're generally not useful.
     // It will still show compile warnings and errors with this setting.

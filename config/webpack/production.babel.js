@@ -8,7 +8,10 @@ const BundleAnalyzerPlugin =
         require( 'webpack-bundle-analyzer' ).BundleAnalyzerPlugin
 
 
-const webpackConfig = { ...commonConfig }
+const webpackConfig = {
+  ...commonConfig,
+  mode: 'production',
+}
 
 
 webpackConfig.plugins.push( ...[

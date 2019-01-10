@@ -4,7 +4,8 @@ import { rules } from './rules'
 import { optimization } from './optimization'
 import { output } from './output'
 import { plugins } from './plugins'
-import dotenv from 'dotenv-safe'
+import { resolve }from './resolve'
+import { rules } from './rules'
 
 import paths from '../../paths'
 

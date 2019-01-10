@@ -1,6 +1,5 @@
 // @flow strict
 import md5 from 'crypto-js/md5'
-import nanoid from 'nanoid'
 
 const
   // Gravatar URL prefix
@@ -10,12 +9,12 @@ const
 /**
  * Construct URL for avatar using gravatar API
  */
-export function getDefaultAvatar( str, {
+export function getDefaultAvatar( str: string, {
   size = 100,
   type = 'retro'
 }: {
   size: number,
-  type: string
+  type?: string
 } = {}): string {
   const
     // Build an MD5 hash from the provide string.
@@ -26,17 +25,4 @@ export function getDefaultAvatar( str, {
 
   // Return url
   return `${ gravatarUrl }/${ hash }?${ query }`
-}
-
-
-/**
- * Generate random short ID using nanoid.
- * Useful for namespacing IDs for forms, menus, etc.
- */
-export function shortID(
-  { underscore = false }: {
-    underscore: boolean // Append underscore to ID
-  } = {}
-) {
-  return underscore ? `_${ nanoid( 6 )}` : nanoid( 6 )
 }

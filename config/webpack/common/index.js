@@ -22,7 +22,7 @@ export const webpackConfig = {
     app: './index.js',
     //worker: 'webpack-dev-server/client',
   },
-  mode: devMode ? 'development' : 'production',
+  mode: process.env.NODE_ENV,
   optimization,
   output,
   module: { rules },

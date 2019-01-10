@@ -2,8 +2,8 @@
 extends:
 - eslint:recommended
 - plugin:flowtype/recommended
-- plugin:import/errors
-- plugin:import/warnings
+#- plugin:import/errors
+#- plugin:import/warnings
 - plugin:jsx-a11y/recommended
 - plugin:promise/recommended
 - plugin:react/recommended
@@ -23,18 +23,18 @@ env:
 plugins:
 - babel
 - flowtype
-- import
+#- import
 - jsx-a11y
 - promise
 - react
 
 rules:
   func-names: 0
-  import/no-extraneous-dependencies: 0
-  import/no-named-as-default: 0
-  import/no-unresolved:
-  - error
-  - {}
+#  import/no-extraneous-dependencies: 0
+#  import/no-named-as-default: 0
+#  import/no-unresolved:
+#  - error
+#  - {}
 
   indent:
   - error

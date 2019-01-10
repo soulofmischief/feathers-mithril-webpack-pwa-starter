@@ -1,10 +1,10 @@
 // Initializes the `messages` service on path `/messages`
-const createService = require( 'feathers-nedb' )
-const createModel = require( '../../models/messages.model' )
-const hooks = require( './messages.hooks' )
+import createService from 'feathers-nedb'
+import hooks from './messages.hooks'
+import createModel from '../../models/messages.model'
 
 
-module.exports = function ( app ) {
+export default function ( app ) {
   const Model = createModel( app )
   const paginate = app.get( 'paginate' )
 

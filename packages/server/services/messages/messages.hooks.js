@@ -1,13 +1,13 @@
 import { isNonEmpty, isString } from '../../hooks/common/verification'
 import { populateUser } from '../../hooks/populate-user'
-import processMessage from '../../hooks/process-message'
+import { processMessage } from '../../hooks/process-message'
 import { trim } from '../../hooks/trim'
 
 
 const { authenticate } = require( '@feathersjs/authentication' ).hooks
 
 
-module.exports = {
+export default {
   before: {
     all: [authenticate( 'jwt' )],
     find: [],

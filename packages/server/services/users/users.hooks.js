@@ -7,7 +7,7 @@ const {
 } = require( '@feathersjs/authentication-local' ).hooks
 
 
-module.exports = {
+export default {
   before: {
     all: [],
     find: [authenticate( 'jwt' )],

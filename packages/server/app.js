@@ -14,7 +14,7 @@ import services from './services'
 import appHooks from './app.hooks'
 import authentication from './authentication'
 import channels from './channels'
-import logger from './logger'
+import { logger } from './logger'
 
 // Change NODE_CONFIG_DIR='server/config'
 process.env['NODE_CONFIG_DIR'] = path.join( __dirname, 'config/' )

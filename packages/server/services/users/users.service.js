@@ -1,10 +1,10 @@
 // Initializes the `users` service on path `/users`
-const createService = require( 'feathers-nedb' )
-const createModel = require( '../../models/users.model' )
-const hooks = require( './users.hooks' )
+import createService from 'feathers-nedb'
+import hooks from './users.hooks'
+import createModel from '../../models/users.model'
 
 
-module.exports = function ( app ) {
+export default function ( app ) {
   const Model = createModel( app )
   const paginate = app.get( 'paginate' )
 

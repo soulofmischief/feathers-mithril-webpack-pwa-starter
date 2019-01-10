@@ -10,7 +10,7 @@ import { goTo } from 'Router/paths'
 import type { Credentials } from 'Flow'
 
 
-export async function authenticateUser( credentials: Credentials ) {
+export async function authenticateUser( credentials?: Credentials ) {
   /**
    * Await authentication, either with
    * credentials or a token in localStorage

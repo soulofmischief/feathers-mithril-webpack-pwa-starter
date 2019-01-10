@@ -1,4 +1,3 @@
-import path from 'path'
 import cors from 'cors'
 import compress from 'compression'
 import helmet from 'helmet'
@@ -17,10 +16,10 @@ import channels from './channels'
 import { logger } from './logger'
 
 // Change NODE_CONFIG_DIR='server/config'
-process.env['NODE_CONFIG_DIR'] = path.join( __dirname, 'config/' )
+//process.env['NODE_CONFIG_DIR'] = path.join( __dirname, 'config/' )
 import configuration from '@feathersjs/configuration'
 
-const app = express( feathers())
+export const app = express( feathers())
 
 // Load app configuration
 app.configure( configuration())
@@ -57,5 +56,3 @@ app.use( express.notFound())
 app.use( express.errorHandler({ logger }))
 
 app.hooks( appHooks )
-
-module.exports = app

@@ -11,6 +11,16 @@
   min-height: 2rem;
   position: relative;
   text-align: center;
+  user-select: none;
+}
+
+.avatar {
+  $size: 1.5rem;
+
+  border-radius: 50%;
+  height: $size;
+  margin-right: 0.5rem;
+  width: $size;
 }
 
 .title {
@@ -24,9 +34,14 @@
   top: 0;
   user-select: none;
   width: 100%;
+  // Since the title is full-size and absolutely positioned,
+  // place it behind other UI elements as to not occlude mouse events.
+  z-index: -10;
 }
 
 .username {
-  font-size: 0.875rem;
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
   margin-left: 1rem;
 }

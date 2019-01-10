@@ -1,8 +1,8 @@
 // @flow strict
 // @jsx m
 import m from 'mithril'
-import { Menu } from 'Components/Menu'
-import { shortID } from 'Lib/utility/strings'
+import { Menu } from '../Menu'
+import { shortID } from 'Lib/strings'
 import { User } from 'Models/User'
 import style from './header.scss'
 
@@ -12,7 +12,14 @@ export function Header() { return {
 
   view() { return (
     <header class={ style.body }>
-      <div class={ style.username }>{ User.current?.username }</div>
+      <div class={ style.username }>
+        <img
+          alt=""
+          class={ style.avatar }
+          src={ User.current?.avatar }
+          title={`${User.current?.username || '' }`}/>
+        { User.current?.username }
+      </div>
       <div class={ style.title }>
         <span role="img" aria-labelledby={`${ this.id }title`}>
           💬

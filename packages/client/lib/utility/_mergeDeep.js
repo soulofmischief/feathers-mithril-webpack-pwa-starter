@@ -1,5 +1,5 @@
 import { merge } from './_merge'
-import { clone, isObject } from './index'
+import { clone, isObject } from '.'
 
 export function mergeDeep( orig ) {
   // If orig isn't an object or an array, make it an empty object

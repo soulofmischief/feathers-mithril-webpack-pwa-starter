@@ -1,5 +1,5 @@
 import union from 'arr-union'
-import { clone, isObject } from './index'
+import { clone, isObject } from '.'
 
 
 export function merge( target, obj ) {

@@ -117,7 +117,7 @@ settings:
 
   import/resolver:
     webpack:
-      config: config/webpack/devserver.babel.js
+      config: config/webpack/editor.babel.js
 
   react:
     pragma: m

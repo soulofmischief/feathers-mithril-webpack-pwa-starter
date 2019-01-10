@@ -1,8 +1,8 @@
-import path from 'path'
-import { paths } from './paths'
+const path = require( 'path' )
+const paths = require( './paths' )
 
-// Keep in sync with .babelrc & .flowconfig
-export function alias() { return {
+
+module.exports = {
   Client: path.resolve( paths.client, 'client' ),
   Components: path.resolve( paths.client, 'components' ),
   Data: path.resolve( paths.client, 'data' ),
@@ -12,4 +12,4 @@ export function alias() { return {
   Styles: path.resolve( paths.client, 'stylesheets' ),
   Theme: path.resolve( paths.client, 'stylesheets/themeExport.scss' ),
   Router: path.resolve( paths.client, 'router' ),
-}}
+}

@@ -1,0 +1,18 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "description": "Client module",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.56",
+    "@feathersjs/client": "^3.5.6",
+    "arr-union": "^3.1.0",
+    "common-tags": "^1.8.0",
+    "jsonwebtoken": "^8.4.0",
+    "lodash": "^4.17.10",
+    "mithril": "^1.1.6",
+    "nanoid": "^2.0.0",
+    "socket.io-client": "^2.1.1"
+  }
+}

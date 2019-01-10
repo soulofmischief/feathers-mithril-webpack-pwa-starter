@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "description": "Server module",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@feathersjs/authentication": "^2.1.7",
+    "@feathersjs/authentication-jwt": "^2.0.1",
+    "@feathersjs/authentication-local": "^1.2.1",
+    "@feathersjs/configuration": "^2.0.0",
+    "@feathersjs/errors": "^3.3.0",
+    "@feathersjs/express": "^1.2.3",
+    "@feathersjs/feathers": "^3.1.7",
+    "@feathersjs/socketio": "^3.2.2",
+    "common-tags": "^1.8.0",
+    "compression": "^1.7.3",
+    "cors": "^2.8.4",
+    "crypto-js": "^3.1.9-1",
+    "express-static-gzip": "^1.1.1",
+    "feathers-memory": "^3.0.1",
+    "feathers-nedb": "^4.0.0",
+    "helmet": "^3.13.0",
+    "nedb": "^1.8.0",
+    "serve-favicon": "^2.5.0",
+    "winston": "^3.0.0"
+  }
+}

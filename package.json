@@ -1,12 +1,11 @@
 {
   "name": "feathers-mithril-webpack-pwa-starter",
+  "private": true,
   "description": "A scalable, reactive example progressive messaging app integrating FeathersJS, Flow, Mithril, Webpack 4, and Babel.",
   "version": "0.1.0",
   "homepage": "",
-  "main": "server",
   "directories": {
-    "lib": "server",
-    "test": "test/"
+    "lib": "packages/server"
   },
   "engines": {
     "node": "^10.12.0",
@@ -18,50 +17,31 @@
     ]
   },
   "scripts": {
-    "client:build": "webpack --config config/webpack/production.babel.js --colors --progress",
-    "client:dev": "webpack-dev-server --config config/webpack/devserver.babel.js --colors --progress --watch | grep -v  \"\\[built\\]\" | grep -v icons-",
-    "server": "node server",
-    "server:dev": "NODE_ENV=development NODE_CONFIG_DIR=server/config nodemon server/index.js -w server --exec babel-node",
-    "test": "yarn run lint:eslint && yarn run lint:flow && yarn run lint:flow:stop && yarn run mocha",
+    "client:build": "yarn webpack:client:production",
+    "client:dev": "yarn webpack:client:dev | yarn webpack:mask",
+    "client:dev:verbose": "yarn webpack:client:dev --verbose | yarn webpack:mask",
     "install": "for script in flow; do yarn install:$script; done",
     "install:flow": "npx flow-typed install",
-    "upgrade:all": "yarn upgrade; for script in flow; do yarn upgrade:$script; done",
-    "upgrade:flow": "npx flow-typed update-cache; npx flow-typed install",
-    "lint:eslint": "eslint server/. test/. --config config/.eslintrc.yaml",
+    "lint:eslint": "eslint packages/. --config config/.eslintrc.yaml",
     "lint:flow": "npx flow status",
     "lint:flow:stop": "npx flow stop",
-    "mocha": "mocha test/ --recursive --exit --compilers js:babel-register"
+    "mocha": "mocha packages/server/test --recursive --exit --compilers js:babel-register",
+    "server": "NODE_CONFIG_DIR=packages/server/config babel-node packages/server",
+    "server:production": "NODE_CONFIG_DIR=packages/server/config node dist/server",
+    "server:dev": "NODE_ENV=development NODE_CONFIG_DIR=packages/server/config nodemon packages/server -w packages/server --exec babel-node",
+    "server:build": "NODE_ENV=production yarn webpack:server",
+    "server:build:full": "NODE_ENV=development yarn webpack:server",
+    "test": "yarn run lint:eslint && yarn run lint:flow && yarn run lint:flow:stop && yarn run mocha",
+    "upgrade:all": "yarn upgrade; for script in flow; do yarn upgrade:$script; done",
+    "upgrade:flow": "npx flow-typed update-cache; npx flow-typed install",
+    "webpack:client:dev": "NODE_ENV=development webpack-dev-server --config config/webpack/devserver.babel.js --colors --progress --watch",
+    "webpack:client:production": "NODE_ENV=production webpack --config config/webpack/production.babel.js --colors --progress",
+    "webpack:mask": "grep -v  \"\\[built\\]\" | grep -v icons-",
+    "webpack:server": "NODE_CONFIG_DIR=packages/server/config webpack --config config/webpack/server.babel.js --colors --progress"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.56",
-    "@feathersjs/authentication": "^2.1.7",
-    "@feathersjs/authentication-jwt": "^2.0.1",
-    "@feathersjs/authentication-local": "^1.2.1",
-    "@feathersjs/client": "^3.5.6",
-    "@feathersjs/configuration": "^2.0.0",
-    "@feathersjs/errors": "^3.3.0",
-    "@feathersjs/express": "^1.2.3",
-    "@feathersjs/feathers": "^3.1.7",
-    "@feathersjs/socketio": "^3.2.2",
-    "arr-union": "^3.1.0",
-    "common-tags": "^1.8.0",
-    "compression": "^1.7.3",
-    "cors": "^2.8.4",
-    "crypto-js": "^3.1.9-1",
     "dotenv-safe": "^6.0.0",
-    "express-static-gzip": "^1.1.1",
-    "feathers-memory": "^3.0.1",
-    "feathers-nedb": "^4.0.0",
-    "feathers-reactive": "^0.7.2",
-    "helmet": "^3.13.0",
-    "jsonwebtoken": "^8.4.0",
-    "lodash": "^4.17.10",
-    "mithril": "^1.1.6",
-    "nanoid": "^2.0.0",
-    "nedb": "^1.8.0",
-    "serve-favicon": "^2.5.0",
-    "socket.io-client": "^2.1.1",
-    "winston": "^3.0.0"
+    "feathers-reactive": "^0.7.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.56",
@@ -92,7 +72,7 @@
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-static-fs": "^1.1.0",
     "babel-plugin-transform-imports": "^1.5.0",
-    "chalk-cli": "^4.0.0",
+    "babel-preset-minify": "^0.5.0",
     "clean-webpack-plugin": "^1.0.0",
     "compression-webpack-plugin": "^2.0.0",
     "css-hot-loader": "^1.4.2",
@@ -117,6 +97,7 @@
     "feathers-localstorage": "^4.0.0",
     "flow-bin": "^0.89.0",
     "html-webpack-plugin": "^3.2.0",
+    "lerna": "^3.8.5",
     "lodash-webpack-plugin": "^0.11.5",
     "mini-css-extract-plugin": "^0.5.0",
     "mocha": "^5.2.0",
@@ -140,7 +121,11 @@
     "webpack-bundle-analyzer": "^3.0.2",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
+    "webpack-node-externals": "^1.7.2",
     "webpack-pwa-manifest": "^4.0.0",
     "webpack-subresource-integrity": "^1.1.0-rc.4"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

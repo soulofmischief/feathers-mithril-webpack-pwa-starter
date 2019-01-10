@@ -1,6 +1,6 @@
 //const config = require( 'config' )
-import { alias } from './alias'
-import { rules } from './rules'
+import dotenv from 'dotenv-safe'
+
 import { optimization } from './optimization'
 import { output } from './output'
 import { plugins } from './plugins'

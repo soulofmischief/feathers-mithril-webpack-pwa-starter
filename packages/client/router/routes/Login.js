@@ -1,5 +1,5 @@
 // @flow strict
-import { paths } from 'Router/paths'
+import { paths } from '../paths'
 
 
 export const Login = {

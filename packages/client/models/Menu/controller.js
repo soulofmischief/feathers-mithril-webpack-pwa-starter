@@ -1,7 +1,7 @@
 // @flow strict
 import m from 'mithril'
 import { debounce } from 'Lib/utility'
-import { Menu } from './index'
+import { Menu } from '.'
 
 
 export const close = debounce(() => {

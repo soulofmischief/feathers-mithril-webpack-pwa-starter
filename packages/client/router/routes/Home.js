@@ -1,7 +1,7 @@
 // @flow strict
 import { authenticateUser } from 'Lib/feathers'
-import { goTo, paths } from 'Router/paths'
 import { applyLayout as render } from 'Lib/mithril'
+import { goTo, paths } from '../paths'
 
 
 export const Home = {

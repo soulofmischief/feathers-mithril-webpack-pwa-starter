@@ -1,6 +1,7 @@
 // @flow strict
 import m from 'mithril'
-import { logIn, signUp } from './hooks'
+import { logIn } from './hooks/logIn'
+import { signUp } from './hooks/signUp'
 //eslint-disable-next-line no-unused-vars
 import type { Vnode } from 'Flow'
 
@@ -25,8 +26,8 @@ export function handleKeys( e: KeyboardEvent ) {
   // Submit on Enter
   if ( e.key === 'Enter' ) {
     if ( e.ctrlKey )
-      signUp.call( this )
+      signUp.call( this, e )
     else
-      logIn.call( this )
+      logIn.call( this, e )
   }
 }

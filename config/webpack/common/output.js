@@ -6,5 +6,5 @@ export const output =  {
   filename: '[name].[hash].js',
   globalObject: 'this',
   path: paths.output,
-  publicPath: '/',
+  publicPath: process.env.ROOT || '/',
 }

@@ -1,8 +1,8 @@
-const NeDB = require( 'nedb' )
-const path = require( 'path' )
+import NeDB from 'nedb'
+import path from 'path'
 
 
-module.exports = function ( app ) {
+export default function ( app ) {
   const dbPath = app.get( 'nedb' )
   const Model = new NeDB({
     filename: path.join( dbPath, 'messages.db' ),

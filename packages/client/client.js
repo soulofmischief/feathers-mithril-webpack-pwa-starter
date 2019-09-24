@@ -5,8 +5,9 @@ import feathers from '@feathersjs/client'
 import rx from 'feathers-reactive'
 
 
-const socket = io( process.env.FEATHERS_API || '' )
-
+const socket = io( process.env.BASE_URL, {
+  path: process.env.SOCKETIO_URL_V1
+})
 
 // Configure and export client
 export const client = feathers()

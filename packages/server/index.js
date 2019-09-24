@@ -1,22 +1,17 @@
 /* eslint-disable no-console */
-import './env' // Load environment variables first
-
-import { logger } from './logger'
+import { convertHRTime } from 'Rootlib/node'
 import { app } from './app'
+import { createServer } from './createServer'
 
 
-const port = app.get( 'port' )
-const server = app.listen( port )
+const initTime = process.hrtime()
 
-//noinspection ES6ModulesDependencies
-process.on( 'unhandledRejection', ( reason, p ) =>
-  logger.error( 'Unhandled Rejection at: Promise ', p, reason )
-)
+// Create feathers server.
+createServer( app )
+  .catch( e => console.error( e ))
 
-server.on( 'listening', () =>
-  logger.info(
-    'Feathers application started on http://%s:%d',
-    app.get( 'host' ),
-    port
-  )
+// Server creation time.
+console.log(
+  'Startup time:',
+  `${ convertHRTime( process.hrtime( initTime )).ms }ms`
 )

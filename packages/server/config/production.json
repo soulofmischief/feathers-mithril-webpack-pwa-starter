@@ -1,4 +1,5 @@
 {
-  "host": "messages-app.feathersjs.com",
-  "port": "PORT"
+  "host": "localhost",
+  "port": "3030",
+  "nedb": "../../../../data/demo/chat/v1"
 }

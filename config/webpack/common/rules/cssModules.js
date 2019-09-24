@@ -1,6 +1,6 @@
 import path from 'path'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import importOnce from 'node-sass-import-once'
+import { postCSSLoader, sassLoader } from './loaders'
 import { devMode } from '../index'
 import paths from '../../../paths'
 
@@ -38,36 +38,16 @@ export const cssModules = {
 
     // Load CSS
     {
-      loader: 'css-loader' +
-        '?modules' +
-        '&sourceMap' +
-        '&localIdentName=[name]__[local]___[hash:base64:5]'
-    },
-
-    // Post-Process CSS
-    {
-      loader: 'postcss-loader',
+      loader: 'css-loader',
       options: {
-        config: {
-          path: path.resolve( paths.root, 'config' ),
-        }
+        modules: {
+          localIdentName: '[name]__[local]___[hash:base64:5]',
+        },
+        sourceMap: devMode,
       }
     },
 
-    // Load SCSS
-    {
-      loader: 'sass-loader',
-      options: {
-        // Allow stylesheets to be imported in component scss.
-        importer: importOnce,
-        importOnce: {
-          //index: path.resolve( paths.src, 'stylesheets/index' ),
-          index: true,
-          css: false,
-          bower: false
-        },
-        includePaths: [path.resolve( paths.client, 'stylesheets' )],
-      },
-    },
+    postCSSLoader,
+    sassLoader,
   ]
 }

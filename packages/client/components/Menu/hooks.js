@@ -1,5 +1,5 @@
 // @flow strict
-import { getActiveElement } from 'Lib/mithril'
+import { getActiveElement } from 'Lib/dom'
 import { Menu } from 'Models/Menu'
 import { toggleMenu } from './events'
 

@@ -1,5 +1,5 @@
 // @flow strict
-import { goTo } from 'Router/paths'
+import { goTo } from 'Router/hooks'
 import { logOut } from 'Lib/feathers'
 
 

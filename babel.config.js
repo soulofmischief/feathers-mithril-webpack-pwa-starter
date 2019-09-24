@@ -33,7 +33,6 @@ module.exports = function ( api ) {
     'babel-plugin-macros',
     'lodash',
     [ 'module-resolver', { alias }],
-    'static-fs',
   ]
 
   return {

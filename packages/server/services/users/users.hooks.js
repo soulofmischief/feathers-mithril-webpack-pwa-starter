@@ -1,25 +1,34 @@
+// @flow strict
+import * as feathersAuthentication from '@feathersjs/authentication'
+import * as local from '@feathersjs/authentication-local'
 import { gravatar } from '../../hooks/gravatar'
 
-const { authenticate } = require( '@feathersjs/authentication' ).hooks
 
-const {
-  hashPassword, protect
-} = require( '@feathersjs/authentication-local' ).hooks
+const { authenticate } = feathersAuthentication.hooks
+const { hashPassword, protect } = local.hooks
 
 
 export default {
   before: {
     all: [],
-    find: [authenticate( 'jwt' )],
-    get: [authenticate( 'jwt' )],
-    create: [ hashPassword(), gravatar() ],
-    update: [ hashPassword(),  authenticate( 'jwt' ) ],
-    patch: [ hashPassword(),  authenticate( 'jwt' ) ],
-    remove: [authenticate( 'jwt' )]
+    find: [
+      authenticate( 'jwt' )],
+    get: [
+      authenticate( 'jwt' )],
+    create: [
+      hashPassword( 'password' ), gravatar()],
+    update: [
+      hashPassword( 'password' ),
+      authenticate( 'jwt' )],
+    patch: [
+      hashPassword( 'password' ),
+      authenticate( 'jwt' )],
+    remove: [
+      authenticate( 'jwt' )]
   },
 
   after: {
-    all: [ 
+    all: [
       // Make sure the password field is never sent to the client
       // Always must be the last hook
       protect( 'password' )

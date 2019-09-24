@@ -28,26 +28,37 @@ module.file_ext=.scss
 ;; Ignore rules
 module.ignore_non_literal_requires=true
 
-;; Aliases (Keep in sync with .babelrc and webpack)
+;; Aliases (Keep in sync with webpack aliases)
 ; Client (Feathers)
 module.name_mapper='^Client$' -> '<PROJECT_ROOT>/packages/client/client.js'
 ; Components
 module.name_mapper='^Components\(/+.*\)$' -> '<PROJECT_ROOT>/packages/client/components\1'
+; Config
+module.name_mapper='^Config\(/+.*\)$' -> '<PROJECT_ROOT>/config\1'
+; Data
 module.name_mapper='^Data\(/+.*\)$' -> '<PROJECT_ROOT>/packages/client/data\1'
 ; Flow definitions
 module.name_mapper='^Flow$' -> '<PROJECT_ROOT>/flow/'
+; Hooks
+module.name_mapper='^Hooks\(/.*\)$' -> '<PROJECT_ROOT>/packages/client/hooks\1'
 ; Lib
 module.name_mapper='^Lib\(/+.*\)$' -> '<PROJECT_ROOT>/packages/client/lib\1'
 ; Model prototype
 module.name_mapper='^Models$' -> '<PROJECT_ROOT>/packages/client/models/'
 ; Models
 module.name_mapper='^Models/\(.*\)$' -> '<PROJECT_ROOT>/packages/client/models/\1'
+; Root Lib
+module.name_mapper='^Rootlib\(/+.*\)$' -> '<PROJECT_ROOT>/lib\1'
+; Router
+module.name_mapper='^Router\(/+.*\)$' -> '<PROJECT_ROOT>/packages/client/router\1'
+; Server Hooks
+module.name_mapper='^ServerHooks/\(.*\)$' -> '<PROJECT_ROOT>/packages/server/hooks/\1'
 ; Styles
 module.name_mapper='^Styles\(/+.*\)$' -> '<PROJECT_ROOT>/packages/client/stylesheets\1'
 ; Theme
 module.name_mapper='^Theme$' -> '<PROJECT_ROOT>/packages/client/stylesheets/themeExport.scss'
-; Router
-module.name_mapper='^Router\(/+.*\)$' -> '<PROJECT_ROOT>/packages/client/router\1'
+
+
 
 ;; CSS Modules
 module.name_mapper.extension='scss' -> 'CSSModule'

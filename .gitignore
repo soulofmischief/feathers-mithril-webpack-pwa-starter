@@ -113,3 +113,5 @@ flow-typed/
 ### Project ###
 data/
 dist/
+.env
+.env.*

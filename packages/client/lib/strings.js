@@ -1,6 +1,7 @@
 // @flow strict
 import nanoid from 'nanoid'
-import { getHSL } from 'color'
+//import { getHSL } from './color'
+import { trailingForwardSlashes } from 'Lib/regex'
 
 
 /**
@@ -30,3 +31,9 @@ export function getNumericalHash( string = '' ) {
   return hash
 }
 
+export function appendForwardSlash( str: string ) {
+  return `${ str.replace(
+    trailingForwardSlashes,
+    '' )
+  }/`
+}

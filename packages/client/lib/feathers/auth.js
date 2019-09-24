@@ -1,11 +1,11 @@
 // @flow strict
 /* eslint-disable no-console */
 import m from 'mithril'
-import jwt from 'jsonwebtoken'
+//import jwt from 'jsonwebtoken'
 
 import { client } from 'Client'
-import { handleError } from 'Lib/utility'
-import { goTo } from 'Router/paths'
+//import { handleError } from 'Lib/async'
+import { goTo } from 'Router/hooks'
 
 import type { Credentials } from 'Flow'
 
@@ -38,7 +38,7 @@ export async function authenticateUser( credentials?: Credentials ) {
  *
  * Retrieves current user if no ID is supplied.
  */
-export async function getUser( id?: string ) {
+/*export async function getUser( id?: string ) {
   try {
     const localCredentials = localStorage[ 'feathers-jwt' ]
 
@@ -54,14 +54,14 @@ export async function getUser( id?: string ) {
   catch( e ) { handleError( e )}
 
   return null
-}
+}*/
 
 
 export async function logOut() {
   /**
    * Log user out and refresh view
    */
-  client.logout()
+  await client.logout()
   m.redraw()
   goTo.home()
 }

@@ -1,19 +1,27 @@
 // @flow strict
 import m from 'mithril'
-import { debounce } from 'Lib/utility'
-import { Menu } from '.'
+import { debounce } from '@soulofmischief/js-utils'
 
 
-export const close = debounce(() => {
-  Menu.isOpen = false
-  window.removeEventListener( 'click', close )
+export const close = debounce( function() {
+  this.isOpen = false
+  window.removeEventListener( 'click', this.ctrl.close )
   m.redraw()
 }, 50 )
 
-export const open = debounce(() => {
-  Menu.isOpen = true
-  window.addEventListener( 'click', close )
+
+export const open = debounce( function() {
+  this.isOpen = true
+  window.addEventListener( 'click', this.ctrl.close )
   m.redraw()
 }, 50 )
 
-export function toggle() { Menu.isOpen ? close() : open()}
+
+//export function close() { _close.call( this )}
+//export function open() { _open.call( this )}
+
+export function toggle() {
+  this.isOpen
+    ? this.ctrl.close()
+    : this.ctrl.open()
+}

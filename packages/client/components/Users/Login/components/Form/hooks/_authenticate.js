@@ -1,6 +1,6 @@
 // @flow strict
-import { client } from 'Client'
-import { goTo } from 'Router/paths'
+import { authenticate } from 'Hooks/users'
+import { goTo } from 'Router/hooks'
 
 
 export async function _authenticate( credentials: {
@@ -8,7 +8,7 @@ export async function _authenticate( credentials: {
   password: string
 }) {
   // Wait for response from server
-  await client.authenticate({ ...credentials, strategy: 'local' })
+  await authenticate( credentials, true )
 
   // Route to home
   goTo.home()

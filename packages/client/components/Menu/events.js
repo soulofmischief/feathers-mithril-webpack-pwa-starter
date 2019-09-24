@@ -1,9 +1,9 @@
 // @flow strict
-import { isConfirm } from 'Lib/events'
-import { Menu } from 'Models/Menu'
-
 //eslint-disable-next-line no-unused-vars
 import type { Vnode } from 'Flow'
+
+import { isConfirm } from 'Lib/events'
+import { Menu } from 'Models/Menu'
 
 
 /**
@@ -17,6 +17,7 @@ export function toggleMenu({ key }: KeyboardEvent ) {
       // `this.state.openedWithKeyboard` is still flagged.
       // We need to disable it again.
       this.state.openedWithKeyboard = false
+
       Menu.ctrl.close()
     } else {
       this.state.openedWithKeyboard = true

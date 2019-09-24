@@ -1,23 +1,13 @@
 // @flow strict
+import type { Vnode } from 'Flow'
+
 import m from 'mithril'
+import { merge } from '@soulofmischief/js-utils'
 import { Default } from 'Components/Layouts/Default'
 
-import type { DOMSearch, Vnode } from 'Flow'
-
-const { find } = Array.prototype
 
 export function applyLayout( v: Vnode ) { return m( Default, v )}
 
-/**
- * Return active element from a list of elements.
- * If there are none, return undefined.
- */
-export const getActiveElement: DOMSearch = list => {
-  return find.call(
-    list,
-    ( element: HTMLElement ) => element === document.activeElement
-  )
-}
 
 export function scrollToBottom() {
   const vnode = this
@@ -27,3 +17,17 @@ export function scrollToBottom() {
 }
 
 
+export function updateHistory( state, replace = false ) {
+  // Deep merge history.state with new state
+  m.route.set(
+    m.route.get(),
+    null,
+    { // Merge mutates the first object, so pass an empty object
+      state: merge(
+        window.history.state || {},
+        state || {}
+      ),
+      replace: replace,
+    }
+  )
+}

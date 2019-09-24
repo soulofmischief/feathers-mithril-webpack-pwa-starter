@@ -1,31 +1,35 @@
 //const config = require( 'config' )
-import dotenv from 'dotenv-safe'
-
+import './env'
 import { optimization } from './optimization'
 import { output } from './output'
 import { plugins } from './plugins'
 import { resolve }from './resolve'
 import { rules } from './rules'
-
 import paths from '../../paths'
 
-// Configure environment variables
-dotenv.config()
 
-export const devMode = process.env.NODE_ENV !== 'production'
+export const
+  devMode = process.env.NODE_ENV !== 'production',
+  name = 'Messages',
+  shortName = 'Messages',
+  title = 'Messages'
 
-export const webpackConfig = {
-  context: paths.client,
-  entry: {
-    app: './index.js',
-  },
-  mode: process.env.NODE_ENV,
-  optimization,
-  output,
-  module: { rules },
-  node: {
-    fs: 'empty'
-  },
-  plugins,
-  resolve,
+
+export function webpackConfig() {
+  return {
+    context: paths.client,
+    entry: { app: './index.js' },
+    mode: process.env.NODE_ENV,
+    module: { rules },
+
+    node: {
+      fs: 'empty',
+      perf_hooks: 'mock',
+    },
+
+    optimization,
+    output,
+    plugins,
+    resolve,
+  }
 }

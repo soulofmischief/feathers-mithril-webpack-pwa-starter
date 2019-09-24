@@ -1,5 +1,5 @@
 // @flow strict
-import { goTo } from '../paths'
+import { goTo } from 'Router/hooks'
 
 
 export const Status = {

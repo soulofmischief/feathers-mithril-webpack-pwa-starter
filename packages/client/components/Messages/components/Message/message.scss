@@ -8,12 +8,12 @@ $border: solid 1px hsla( 0, 0, 0, 0.1 );
 $padding: 0.5rem;
 
 .body {
-  --bg-color: overlay( 0.2 );
+  --bg-color: overlay( 0.3 );
 
   @include boxShadow( 1 );
 
   background: var( --bg-color );
-  border-radius: 16px;
+  border-radius: 2px;
   display: flex;
   flex-flow: row nowrap;
   margin: 0.5rem 1rem;

@@ -1,7 +1,7 @@
 // @flow strict
 import { Model } from 'Models'
 import * as ctrl from './controller'
-import { bindProps } from 'Lib/utility/bindProps'
+import bind from '@soulofmischief/bind-props'
 
 
 export const Menu = new class C_Menu extends Model {
@@ -11,5 +11,6 @@ export const Menu = new class C_Menu extends Model {
 
   isOpen = false
 
-  ctrl = bindProps( this, ctrl )
+  ctrl = bind( this, ctrl )
+  //ctrl = { ...bindProps( this, ctrl ), ctrl.}
 }

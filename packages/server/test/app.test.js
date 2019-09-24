@@ -6,7 +6,7 @@ const app = require( '../app' )
 const port = app.get( 'port' ) || 3030
 const getUrl = pathname => url.format({
   hostname: app.get( 'host' ) || 'localhost',
-  protocol: 'http',
+  protocol: app.get( 'protocol' ),
   port,
   pathname
 })
@@ -22,6 +22,7 @@ describe( 'Feathers application tests', () => {
   })
 
   it( 'starts and shows the index page', () => {
+    //noinspection HtmlRequiredLangAttribute
     return rp( getUrl()).then( body =>
       assert.ok( body.indexOf( '<html>' ) !== -1 )
     )
@@ -36,6 +37,7 @@ describe( 'Feathers application tests', () => {
         }
       }).catch( res => {
         assert.equal( res.statusCode, 404 )
+        //noinspection HtmlRequiredLangAttribute
         assert.ok( res.error.indexOf( '<html>' ) !== -1 )
       })
     })

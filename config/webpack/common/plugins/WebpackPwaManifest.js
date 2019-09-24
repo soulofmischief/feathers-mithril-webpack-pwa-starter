@@ -1,10 +1,16 @@
 import path from 'path'
 import WebpackPwaManifest from 'webpack-pwa-manifest'
 import paths from '../../../paths'
-import dotenv from 'dotenv-safe'
+//import dotenv from 'dotenv-safe'
 
 
-dotenv.config()
+// Configure environment variables
+/*
+dotenv.config({
+  path: path.resolve( paths.root,
+    `.env.${ process.env.NODE_ENV || 'development' }`
+  )
+})*/
 
 const manifestIconDir = 'icons-manifest'
 

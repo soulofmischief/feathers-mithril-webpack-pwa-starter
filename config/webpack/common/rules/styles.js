@@ -1,6 +1,6 @@
 import path from 'path'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import importOnce from 'node-sass-import-once'
+import { postCSSLoader, sassLoader } from './loaders'
 import { devMode } from '../index'
 import paths from '../../../paths'
 
@@ -25,29 +25,7 @@ export const styles = {
     // Load CSS
     'css-loader',
 
-    // Post-Process CSS
-    {
-      loader: 'postcss-loader',
-      options: {
-        config: {
-          path: path.resolve( paths.root, 'config' ),
-        }
-      }
-    },
-
-    // Load SCSS
-    {
-      loader: 'sass-loader',
-      options: {
-        // Flatten dependencies, preventing multiple copies of styles
-        // imported by files in a dependency chain.
-        importer: importOnce,
-        importOnce: {
-          index: true,
-          css: false,
-          bower: false
-        },
-      },
-    },
+    postCSSLoader,
+    sassLoader,
   ]
 }

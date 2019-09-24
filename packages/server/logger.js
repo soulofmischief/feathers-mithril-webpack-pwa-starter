@@ -1,4 +1,4 @@
-const { createLogger, format, transports } = require( 'winston' )
+import { createLogger, format, transports } from 'winston'
 
 // Configure the Winston logger.
 // For the complete documentation see https://github.com/winstonjs/winston

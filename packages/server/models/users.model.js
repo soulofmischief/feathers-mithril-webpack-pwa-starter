@@ -1,14 +1,14 @@
-const NeDB = require('nedb');
-const path = require('path');
+import NeDB from 'nedb'
+import path from 'path'
 
-module.exports = function (app) {
-  const dbPath = app.get('nedb');
+export default function ( app ) {
+  const dbPath = app.get( 'nedb' )
   const Model = new NeDB({
-    filename: path.join(dbPath, 'users.db'),
+    filename: path.join( dbPath, 'users.db' ),
     autoload: true
-  });
+  })
 
-  Model.ensureIndex({ fieldName: 'username', unique: true });
+  Model.ensureIndex({ fieldName: 'username', unique: true })
 
-  return Model;
-};
+  return Model
+}

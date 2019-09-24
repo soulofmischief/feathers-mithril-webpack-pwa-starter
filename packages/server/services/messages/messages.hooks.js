@@ -1,10 +1,11 @@
+import * as feathersAuthentication from '@feathersjs/authentication'
 import { isNonEmpty, isString } from '../../hooks/common/verification'
 import { populateUser } from '../../hooks/populate-user'
 import { processMessage } from '../../hooks/process-message'
 import { trim } from '../../hooks/trim'
 
 
-const { authenticate } = require( '@feathersjs/authentication' ).hooks
+const { authenticate } = feathersAuthentication.hooks
 
 
 export default {

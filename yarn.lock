@@ -969,6 +969,20 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.6.2", "@babel/runtime@^7.6.3":
+  version "7.6.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.6.3.tgz#935122c74c73d2240cafd32ddb5fc2a6cd35cf1f"
+  integrity sha512-kq6anf9JGjW8Nt5rYfEuGRaEAaH1mkv3Bbu6rYvLOpPh/RusSJXuKPEAoZ7L7gybZkchE8+NV5g9vKF4AGAtsA==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
+"@babel/runtime@^7.9.6":
+  version "7.9.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.6.tgz#a9102eb5cadedf3f31d08a9ecf294af7827ea29f"
+  integrity sha512-64AF1xY3OAkFHqOb9s4jpgk1Mm5vDZ4L3acHvAml+53nO1XbXLuDodsVpO4OIUsmemlUHMxNdYMNJmsvOwLrvQ==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.1.0", "@babel/template@^7.2.2":
   version "7.2.2"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.2.2.tgz#005b3fdf0ed96e88041330379e0da9a708eb2907"
@@ -2267,6 +2281,22 @@
     once "^1.4.0"
     universal-user-agent "^4.0.0"
 
+"@soulofmischief/array.js@^0.4.0":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@soulofmischief/array.js/-/array.js-0.4.1.tgz#968dd8430e57856a722748914ae039b23deb6f75"
+  integrity sha512-M6Oxxvk/lYt7Ns/WDfB8WY/MrHpf0rbstRX27XVD0FyiztHVsIPHD6NgmvXocjBzvw0ohWNsiimvZBcEfZwZOw==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@soulofmischief/js-utils" "^0.5.1"
+
+"@soulofmischief/array.js@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@soulofmischief/array.js/-/array.js-0.5.0.tgz#e4b2ba0b88141f9afeab8afdbca815ef7c47f64f"
+  integrity sha512-QT2QG4fhFCdobQoyexDxAJ7iBAiF6KqSabgwzY66pWQAB2QZ1epo0Amy4mju3vf0c8yJr1QubhW3Buq7RVaUoQ==
+  dependencies:
+    "@babel/runtime" "^7.6.3"
+    "@soulofmischief/js-utils" "^0.5.1"
+
 "@soulofmischief/bind-props@^1.1.8":
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/@soulofmischief/bind-props/-/bind-props-1.1.8.tgz#893bef0735b4e58ce817019d88ba67697fb1037f"
@@ -2277,6 +2307,22 @@
   resolved "https://registry.yarnpkg.com/@soulofmischief/js-utils/-/js-utils-0.4.4.tgz#a84c2c64d1cabf2c831b848d9ec82fade256e1c4"
   integrity sha512-lGDG7ZdAt37ErtuwjO1UKGx47zSm7bs78FUkRro9lXwoPRZ/QI3JVWFEm10PLrulO1boqvOU6MN2vOlHia6Kvg==
   dependencies:
+    lodash "^4.17.15"
+
+"@soulofmischief/js-utils@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@soulofmischief/js-utils/-/js-utils-0.5.1.tgz#273df43c8dc86a03bb023fe347870b3f5c4a1c1b"
+  integrity sha512-fxj/1P0stXiOgufr1LuOH2A8iuP5eNXhVwR2E7xjMBamxjWoPIm/19yE+GoFmZw1TkMdGAKei5gdz5TcR6k2Wg==
+  dependencies:
+    "@soulofmischief/array.js" "^0.4.0"
+    lodash "^4.17.15"
+
+"@soulofmischief/js-utils@^0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@soulofmischief/js-utils/-/js-utils-0.5.3.tgz#6fb9b7e39f49e9a9f3238858703585fdfca985fd"
+  integrity sha512-CC/L+9bq7mUWM4tYT48m7aP7RYWcCgH3MRAskbYPqYta51IyX8yJ2pO7+32ErQZhgwquN4bZq3NHK70hYvvwGA==
+  dependencies:
+    "@soulofmischief/array.js" "^0.5.0"
     lodash "^4.17.15"
 
 "@soulofmischief/node-utils@^0.1.1":
@@ -4050,7 +4096,7 @@ check-types@^7.3.0:
   resolved "https://registry.yarnpkg.com/check-types/-/check-types-7.4.0.tgz#0378ec1b9616ec71f774931a3c6516fad8c152f4"
   integrity sha512-YbulWHdfP99UfZ73NcUDlNJhEIDgm9Doq9GhpyXbF+7Aegi3CVV7qqMCKTTqJxlvEvnQBp9IA+dxsGN6xK/nSg==
 
-chokidar@^2.0.2, chokidar@^2.1.8:
+chokidar@^2.0.2, chokidar@^2.1.0, chokidar@^2.1.8:
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.1.8.tgz#804b3a7b6a99358c3c5c61e71d8728f041cff917"
   integrity sha512-ZmZUazfOzf0Nve7duiCKD23PFSCs4JPoYyccjUFF3aQkQadqBhfzhjkwBH2mNOG9cTBwhamM37EIsIkZw3nRgg==
@@ -9697,16 +9743,16 @@ nodemon@soulofmischief/nodemon:
   version "0.0.0-development"
   resolved "https://codeload.github.com/soulofmischief/nodemon/tar.gz/22e38dc31f9f113ffec3bc6e9f50979e4a8d588c"
   dependencies:
-    chokidar "^2.0.2"
+    chokidar "^2.1.0"
     debug "^3.1.0"
     ignore-by-default "^1.0.1"
     minimatch "^3.0.4"
-    pstree.remy "^1.1.0"
+    pstree.remy "^1.1.6"
     semver "^5.5.0"
     supports-color "^5.2.0"
     touch "^3.1.0"
     undefsafe "^2.0.2"
-    update-notifier "^2.3.0"
+    update-notifier "^2.5.0"
 
 noop-logger@^0.1.1:
   version "0.1.1"
@@ -11184,7 +11230,7 @@ psl@^1.1.28:
   resolved "https://registry.yarnpkg.com/psl/-/psl-1.1.31.tgz#e9aa86d0101b5b105cbe93ac6b784cd547276184"
   integrity sha512-/6pt4+C+T+wZUieKR620OpzN/LlnNKuWjy1iFLQ/UG35JqHlR/89MP1d96dUfkf6Dne3TuLQzOYEYshJ+Hx8mw==
 
-pstree.remy@^1.1.0:
+pstree.remy@^1.1.6:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/pstree.remy/-/pstree.remy-1.1.7.tgz#c76963a28047ed61542dc361aa26ee55a7fa15f3"
   integrity sha512-xsMgrUwRpuGskEzBFkH8NmTimbZ5PcPup0LA8JJkHIm2IMUbQcpo3yeLNWVrufEYjh8YwtSVh0xz6UeWc5Oh5A==
@@ -11552,6 +11598,11 @@ regenerator-runtime@^0.13.2, regenerator-runtime@^0.13.3:
   version "0.13.3"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.3.tgz#7cf6a77d8f5c6f60eb73c5fc1955b2ceb01e6bf5"
   integrity sha512-naKIZz2GQ8JWh///G7L3X6LaQUAMp2lvb1rvwwsURe/VXwD6VMfr+/1NuNw3ag8v2kY1aQ/go5SNn79O9JU7yw==
+
+regenerator-runtime@^0.13.4:
+  version "0.13.5"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.5.tgz#d878a1d094b4306d10b9096484b33ebd55e26697"
+  integrity sha512-ZS5w8CpKFinUzOwW3c83oPeVXoNsrLsaCoLtJvAClH135j/R77RuymhiSErhm2lKcwSCIpmvIWSbDkIfAqKQlA==
 
 regenerator-transform@^0.14.0:
   version "0.14.1"
@@ -13582,7 +13633,7 @@ upath@^1.0.5, upath@^1.1.1:
   resolved "https://registry.yarnpkg.com/upath/-/upath-1.2.0.tgz#8f66dbcd55a883acdae4408af8b035a5044c1894"
   integrity sha512-aZwGpamFO61g3OlfT7OQCHqhGnW43ieH9WZeP7QxN/G/jS4jfqUkZxoryvJgVPEcrl5NL/ggHsSmLMHuH64Lhg==
 
-update-notifier@^2.3.0:
+update-notifier@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/update-notifier/-/update-notifier-2.5.0.tgz#d0744593e13f161e406acb1d9408b72cad08aff6"
   integrity sha512-gwMdhgJHGuj/+wHJJs9e6PcCszpxR1b236igrOkUofGhqJuG+amlIKwApH1IW1WWl7ovZxsX49lMBWLxSdm5Dw==

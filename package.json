@@ -39,7 +39,7 @@
     "webpack:server": "NODE_CONFIG_DIR=packages/server/config webpack --config config/webpack/server.babel.js --colors --progress"
   },
   "dependencies": {
-    "@soulofmischief/js-utils": "^0.4.4",
+    "@soulofmischief/js-utils": "^0.5.3",
     "dotenv-safe": "^8.1.0",
     "yarn": "^1.17.3"
   },

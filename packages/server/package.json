@@ -5,6 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@babel/runtime": "^7.9.6",
     "@feathersjs/authentication": "^4.3.3",
     "@feathersjs/authentication-jwt": "^2.0.10",
     "@feathersjs/authentication-local": "^4.3.3",

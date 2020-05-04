@@ -62,7 +62,7 @@ export function Form() { return {
           key={ b[0] }
           class={ style.btn }
           onclick={ b[1] }
-          onkeydown={ doOnConfirm( this.logIn.bind( v ))}
+          onkeydown={ doOnConfirm( v::this.logIn )}
         >
           { b[0] }
           <div class={ style.btn_help }>{ b[2] }</div>

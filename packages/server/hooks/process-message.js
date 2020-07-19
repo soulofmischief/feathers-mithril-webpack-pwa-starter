@@ -1,5 +1,10 @@
 // Use this hook to manipulate incoming or outgoing data.
 // For more information on hooks see: http://docs.feathersjs.com/api/hooks.html
+import DOMPurify from 'dompurify'
+import { JSDOM } from 'jsdom'
+
+const domPurify = DOMPurify( new JSDOM( '' ).window )
+
 
 // eslint-disable-next-line no-unused-vars
 export function processMessage( options = {}) {
@@ -8,8 +13,8 @@ export function processMessage( options = {}) {
 
     // Get authenticated user
     const
-      user = context.params.user,
-      text = data.text
+      { user } = context.params,
+      text = domPurify.sanitize( data.text )
         // Truncate message
         .substring( 0, Number( process.env.MESSAGE_MAX_LENGTH ))
 

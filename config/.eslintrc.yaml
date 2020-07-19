@@ -83,12 +83,16 @@ rules:
     - empty
 
   # Babel
-  babel/new-cap: 1
+  babel/new-cap:
+  - 2
+  - capIsNewExceptionPattern: '^[A-Z]{2,}'
+
   babel/object-curly-spacing:
   - 0 # Disable until there is a setting for parenthesis
   - always
   - arraysInObjects: false
     objectsInObjects: false
+
   babel/no-invalid-this: 0
   babel/semi:
   - 1

@@ -1,8 +1,8 @@
 // @flow strict
-import { appendRootPath } from 'Router/hooks/appendRootPath'
+import { prependRootPath } from 'Router/hooks/prependRootPath'
 
 
-export const paths = appendRootPath({
+export const paths = prependRootPath({
   home: '',
   login:  'login',
 }, process.env.ROOT )

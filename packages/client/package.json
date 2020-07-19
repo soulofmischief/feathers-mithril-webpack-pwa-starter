@@ -10,6 +10,7 @@
     "@soulofmischief/bind-props": "^1.1.8",
     "@soulofmischief/js-utils": "^0.12.0",
     "@soulofmischief/node-utils": "^0.1.7",
+    "@soulofmischief/strings": "^0.3.0",
     "arr-union": "^3.1.0",
     "common-tags": "^1.8.0",
     "feathers-reactive": "^0.8.2",

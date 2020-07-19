@@ -2,7 +2,7 @@
 // @jsx m
 import m from 'mithril'
 import { Menu } from 'Components/Menu'
-import { shortID } from 'Lib/strings'
+import { shortID } from '@soulofmischief/strings'
 import { User } from 'Models/User'
 import style from './header.scss'
 

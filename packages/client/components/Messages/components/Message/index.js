@@ -4,7 +4,7 @@ import m from 'mithril'
 import { oneLine } from 'common-tags'
 import { hsl } from 'Lib/color'
 import { getDayAndTime } from 'Lib/dates'
-import { getNumericalHash } from 'Lib/strings'
+import { getNumericalHash } from '@soulofmischief/strings'
 import { User } from 'Models/User'
 import style from './message.scss'
 

@@ -1,7 +1,7 @@
 // @flow strict
 import m from 'mithril'
+import { appendForwardSlash } from '@soulofmischief/strings'
 import { routes } from './routes/index.js'
-import { appendForwardSlash } from 'Lib/strings'
 
 // Define root
 const root = document.querySelector( '#root' )

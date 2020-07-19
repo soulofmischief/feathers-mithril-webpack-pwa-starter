@@ -2,7 +2,7 @@
 // @jsx m
 import m from 'mithril'
 import { Icon } from 'Components/Icon'
-import { shortID } from 'Lib/strings'
+import { shortID } from '@soulofmischief/strings'
 import { Menu as M_Menu } from 'Models/Menu'
 
 import { PopUp } from './components/PopUp'

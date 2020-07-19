@@ -16,6 +16,11 @@ export function processMessage( options = {}) {
       throw new Error( 'Message is empty.' )
     }
 
+    // Message is too long.
+    if( data.text.length > process.env.MESSAGE_MAX_LENGTH ) {
+      throw new Error( 'Message cannot be longer than 400 characters.' )
+    }
+
     // Get authenticated user
     const
       { user } = context.params,

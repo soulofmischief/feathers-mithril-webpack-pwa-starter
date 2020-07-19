@@ -11,6 +11,11 @@ export function processMessage( options = {}) {
   return async context => {
     let { data } = context
 
+    // Throw an error if we didn't get a text
+    if( !data.text ) {
+      throw new Error( 'Message is empty.' )
+    }
+
     // Get authenticated user
     const
       { user } = context.params,

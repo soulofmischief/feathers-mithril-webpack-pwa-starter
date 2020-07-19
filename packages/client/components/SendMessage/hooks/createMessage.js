@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 import m from 'mithril'
 import { client } from 'Client'
-import { timeout } from '@soulofmischief/js-utils'
+import { timeout } from '@soulofmischief/async.js'
 import { getInput } from './getInput'
 
 

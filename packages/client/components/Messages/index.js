@@ -15,7 +15,7 @@ export function Messages() { return {
   /** Have messages initially loaded? */
   isLoaded: false,
   /** Messages store */
-  messages: { data: [] },
+  messages: { data: []},
   /** Reference to message service subscriber */
   MessageService: null,
 

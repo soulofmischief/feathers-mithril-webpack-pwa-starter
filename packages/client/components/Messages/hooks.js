@@ -32,7 +32,8 @@ function onremove() {
 async function get( v: Vnode ) {
   try {
     // Subscribe to messages service
-    this.MessageService = client.service( 'messages' ).watch()
+    this.MessageService = client.service( 'messages' )
+      .watch()
       .find({
         query: {
           // Show newest message at bottom

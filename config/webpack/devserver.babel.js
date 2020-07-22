@@ -1,15 +1,56 @@
 import webpack from 'webpack'
-import { webpackConfig as commonConfig } from './common'
+import { webpackConfig } from './common'
+import { config } from '../config'
+import { paths } from '../paths'
+
+/*const options = {
+  alias,
+  paths: paths.client,
+  webpack: {
+    configDir: paths.appConfig,
+    devServer: {
+      proxy: {
+        root: config.get( 'client.proxy.root' ),
+        socket: config.get( 'client.proxy.socket' ),
+        target: config.get( 'server.url' ),
+      },
+    },
+    publicPath: config.get( 'client.root' ) || '/',
+    includes: [
+      paths.client.root,
+      paths.server.root,
+    ],
+    loaders: {
+      babel: [ paths.client.root, paths.flow ],
+      css: paths.client.stylesheets,
+      cssModules: paths.client.components,
+      files: [ paths.resources, paths.client.resources ],
+      shaders: paths.client.root,
+    },
+    modules: [
+      paths.client.root,
+      //paths.server.root,
+    ],
+    template: path.resolve( paths.client.templates, 'index.ejs' ),
+    title: config.get( 'app.title' ),
+    pwa: {
+      name: config.get( 'app.name' ),
+      shortName: config.get( 'app.shortName' ),
+      description: 'Expanding human potential.',
+      //bgColor: '#f2f2f2',
+      //themeColor: '#f2f2f2',
+    },
+  },
+}*/
 
 
-const BundleAnalyzerPlugin =
-    require( 'webpack-bundle-analyzer' ).BundleAnalyzerPlugin
+const { BundleAnalyzerPlugin } = require( 'webpack-bundle-analyzer' )
 
 
 module.exports = function( env, argv ) {
-  const config = commonConfig( env, argv )
+  const c = webpackConfig( env, argv, { name: 'client' })
 
-  config.plugins.push( ...[
+  c.plugins.push( ...[
     new BundleAnalyzerPlugin({
       defaultSizes: 'gzip',
       openAnalyzer: false,
@@ -27,46 +68,47 @@ module.exports = function( env, argv ) {
   ])
 
   return {
-    ...config,
+    ...c,
     devServer: {
-      // Silence WebpackDevServer's own logs.
-      // It will still show compile warnings and errors.
       clientLogLevel: 'none',
       compress: true,
-      contentBase: 'public',
+      contentBase: paths.client.output,
+
       historyApiFallback: {
         // Paths with dots should still use the history fallback.
         disableDotRule: true,
       },
+
       // Enable HMR
       hot: true,
       https: true,
       inline: true,
-      // Display overlay on page containing error
+      // Display overlay on page containing error.
       overlay: true,
-      port: 4001,
+      port: config.get( 'client.port' ),
       // Proxy requests to API server
       proxy: {
         // Handle REST requests
-        [ process.env.API_URL_V1 ]: {
-          target: process.env.FEATHERS_API_V1,
+        [ config.get( 'client.proxy.root' )]: {
+          target: config.get( 'server.url' ),
           // Remove ^/api/v* prefix from the request URL
           pathRewrite: {
-            [`^${ process.env.API_URL_V1 }`]: ''
+            [`^${ config.get( 'client.proxy.root' )}`]: ''
           },
           secure: false
         },
         // Handle socket.io connections
-        [ process.env.SOCKETIO_URL_V1 ]: {
-          target: process.env.FEATHERS_API_V1,
+        [ config.get( 'client.proxy.socket' )]: {
+          target: config.get( 'server.url' ),
           secure: false,
           ws: true,
         }
       },
       // Trigger a page reload if `contentBase` is modified.
       watchContentBase: true,
+      //host: '0.0.0.0',
     },
+
     devtool: 'cheap-module-eval-source-map',
-    //mode: 'development',
   }
 }

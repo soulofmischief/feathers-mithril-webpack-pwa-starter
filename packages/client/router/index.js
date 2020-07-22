@@ -3,6 +3,7 @@ import m from 'mithril'
 import { appendForwardSlash } from '@soulofmischief/strings'
 import { routes } from './routes'
 
+
 // Define root
 const root = document.querySelector( '#root' )
 
@@ -10,4 +11,4 @@ const root = document.querySelector( '#root' )
 m.route.prefix = ''
 
 // Route
-m.route( root, appendForwardSlash( process.env.ROOT ), routes )
+m.route( root, appendForwardSlash( CONFIG.root ), routes )

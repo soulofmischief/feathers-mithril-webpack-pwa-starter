@@ -1,22 +1,32 @@
 const rxPaths = require( 'rxjs/_esm5/path-mapping' )
 const path = require( 'path' )
-const paths = require( './paths' )
+const { paths } = require( './paths' )
 
 
-module.exports = {
-  Client: path.resolve( paths.client, 'client' ),
-  Config: path.resolve( paths.config ),
-  Components: path.resolve( paths.client, 'components' ),
-  Data: path.resolve( paths.client, 'data' ),
-  Flow: path.resolve( paths.root, 'flow' ),
-  Hooks: path.resolve( paths.client, 'hooks' ),
-  Lib: path.resolve( paths.client, 'lib' ),
-  Models: path.resolve( paths.client, 'models' ),
-  Styles: path.resolve( paths.client, 'stylesheets' ),
-  Theme: path.resolve( paths.client, 'stylesheets/themeExport.scss' ),
-  Rootlib: path.resolve( paths.root, 'lib' ),
-  Router: path.resolve( paths.client, 'router' ),
-  ServerHooks: path.resolve( paths.server, 'hooks' ),
+const { client, server } = paths
+
+
+module.exports.alias = {
+  // Root
+  Config:  paths.config,
+  External:  paths.external,
+  Flow:    paths.flow,
+  Resources: paths.resources,
+  RootLib: paths.lib,
+
+  // Client
+  Components: client.components,
+  Styles:     client.stylesheets,
+  Client:     path.resolve( client.root, 'client' ),
+  Data:       path.resolve( client.root, 'data' ),
+  Hooks:      path.resolve( client.root, 'hooks' ),
+  Lib:        path.resolve( client.root, 'lib' ),
+  Models:     path.resolve( client.root, 'models' ),
+  Theme:      path.resolve( client.stylesheets, 'themeExport.scss' ),
+  Router:     path.resolve( client.root, 'router' ),
+
+  // Server
+  ServerHooks: server.hooks,
 
   // Map RxJS imports to es6 versions
   ...rxPaths(),

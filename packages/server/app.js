@@ -1,27 +1,12 @@
-import path from 'path'
 import cors from 'cors'
 import compress from 'compression'
 import helmet from 'helmet'
 
-import configuration from '@feathersjs/configuration'
+import configuration from '@soulofmischief/feathers-configuration'
 import express from '@feathersjs/express'
 import feathers from '@feathersjs/feathers'
 import socketio from '@feathersjs/socketio'
 import rx from 'feathers-reactive'
-
-import paths from 'Config/paths'
-
-// Load dotenv if webpack isn't injecting environment vars.
-if ( !process.env.ENVIRONMENT_VARS_PRESENT ) {
-  const dotenv = require( 'dotenv-safe' )
-
-  dotenv.config({
-    path: path.resolve( paths.root,
-      `.env.${ process.env.NODE_ENV || 'development' }`
-    )
-  })
-}
-
 
 import appHooks from './app.hooks'
 import authentication from './authentication'
@@ -34,7 +19,9 @@ import services from './services'
 export const app = express( feathers())
 
 // Load app configuration
-app.configure( configuration())
+app.configure( configuration( 'server' ))
+
+
 
 // Enable security, CORS, compression, favicon and body parsing
 app.use( helmet())
@@ -51,7 +38,7 @@ app.use( express.urlencoded({ extended: true }))
 app.configure( express.rest())
 app.configure( socketio())
 app.configure( rx({
-  idField: process.env.DATABASE_ID_FIELD
+  idField: CONFIG.idField,
 }))
 
 // Configure other middleware (see `middleware/index.js`)

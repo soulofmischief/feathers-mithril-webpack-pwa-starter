@@ -3,6 +3,7 @@
 import DOMPurify from 'dompurify'
 import { JSDOM } from 'jsdom'
 
+
 const domPurify = DOMPurify( new JSDOM( '' ).window )
 
 
@@ -17,7 +18,7 @@ export function processMessage( options = {}) {
     }
 
     // Message is too long.
-    if( data.text.length > process.env.MESSAGE_MAX_LENGTH ) {
+    if( data.text.length > CONFIG.messages.maxLength ) {
       throw new Error( 'Message cannot be longer than 400 characters.' )
     }
 
@@ -26,7 +27,7 @@ export function processMessage( options = {}) {
       { user } = context.params,
       text = domPurify.sanitize( data.text )
         // Truncate message
-        .substring( 0, Number( process.env.MESSAGE_MAX_LENGTH ))
+        .substring( 0, Number( CONFIG.messages.maxLength ))
 
     // Extract wanted parameters into new object )
     context.data = {

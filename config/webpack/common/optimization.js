@@ -1,12 +1,12 @@
-import { devMode } from './index'
 
 
-export const optimization = {
+export const optimization = devMode => ({
   minimize: !devMode,
   // Split Chunks Plugin
   // https://webpack.js.org/plugins/split-chunks-plugin/
   splitChunks: devMode ? {} : {
     cacheGroups: {
+      // Concatenate all CSS into one chunk to aid MiniCssExtractPlugin.
       styles: {
         name: 'styles',
         test: /\.css$/,
@@ -17,4 +17,4 @@ export const optimization = {
     chunks: 'all',
     name: devMode,
   },
-}
+})

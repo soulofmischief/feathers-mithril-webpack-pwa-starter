@@ -1,6 +1,6 @@
 // @flow strict
 import m from 'mithril'
-import { paths } from 'Router/paths'
+import { paths } from '../paths'
 
 
 /** Create a map of each path with a method for routing to that path */

@@ -1,6 +1,5 @@
-import path from 'path'
 import importOnce from 'node-sass-import-once'
-import paths from '../../../../paths'
+import { paths } from '../../../../paths'
 
 
 export const sassLoader = {
@@ -13,7 +12,7 @@ export const sassLoader = {
         css: false,
         bower: false
       },
-      includePaths: [ path.resolve( paths.client, 'stylesheets' )],
+      includePaths: [ paths.client.stylesheets ],
     },
   },
 }

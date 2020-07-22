@@ -2,14 +2,14 @@ import path from 'path'
 import CompressionPlugin from 'compression-webpack-plugin'
 import OfflinePlugin from 'offline-plugin'
 import { webpackConfig as commonConfig } from './common'
-import paths from '../paths'
+import { paths } from '../paths'
 
-const BundleAnalyzerPlugin =
-        require( 'webpack-bundle-analyzer' ).BundleAnalyzerPlugin
+
+const { BundleAnalyzerPlugin } = require( 'webpack-bundle-analyzer' )
 
 
 module.exports = function( env, argv ) {
-  const config = commonConfig( env, argv )
+  const config = commonConfig( env, argv, { name: 'client' })
 
   config.plugins.concat([
     // Emit gzip-compressed bundles

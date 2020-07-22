@@ -115,3 +115,4 @@ data/
 dist/
 .env
 .env.*
+packages/local

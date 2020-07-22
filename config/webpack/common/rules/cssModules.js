@@ -1,8 +1,6 @@
 import path from 'path'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import { postCSSLoader, sassLoader } from './loaders'
-import { devMode } from '../index'
-import paths from '../../../paths'
+import { paths } from '../../../paths'
+import * as l from './loaders'
 
 
 /**
@@ -16,38 +14,13 @@ import paths from '../../../paths'
  */
 export const cssModules = {
   test: /\.scss$/,
-  include: path.resolve( paths.client, 'components' ),
+  include: paths.client.components,
   exclude: /\.flow$/,
   use: [
-    // HMR support
-    'css-hot-loader',
-
-    // Extract CSS to separate files
-    devMode? 'styles-loader' : MiniCssExtractPlugin.loader,
-
-    // Create .flow files alongside each source file
-    // to enable completion and type-checking.
-    {
-      loader: 'css-modules-flow-types-loader',
-      options: {
-        extension: '.scss',
-        strict: true,
-        watch: devMode,
-      }
-    },
-
-    // Load CSS
-    {
-      loader: 'css-loader',
-      options: {
-        modules: {
-          localIdentName: '[name]__[local]___[hash:base64:5]',
-        },
-        sourceMap: devMode,
-      }
-    },
-
-    postCSSLoader,
-    sassLoader,
+    l.cssExtractLoader,
+    l.cssFlowLoader,
+    l.cssModulesLoader,
+    l.postCSSLoader,
+    l.sassLoader,
   ]
 }

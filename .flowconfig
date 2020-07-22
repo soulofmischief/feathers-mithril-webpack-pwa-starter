@@ -48,7 +48,7 @@ module.name_mapper='^Models$' -> '<PROJECT_ROOT>/packages/client/models/'
 ; Models
 module.name_mapper='^Models/\(.*\)$' -> '<PROJECT_ROOT>/packages/client/models/\1'
 ; Root Lib
-module.name_mapper='^Rootlib\(/+.*\)$' -> '<PROJECT_ROOT>/lib\1'
+module.name_mapper='^RootLib\(/+.*\)$' -> '<PROJECT_ROOT>/lib\1'
 ; Router
 module.name_mapper='^Router\(/+.*\)$' -> '<PROJECT_ROOT>/packages/client/router\1'
 ; Server Hooks

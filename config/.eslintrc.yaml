@@ -20,6 +20,9 @@ env:
   node: true
   mocha: true
 
+globals:
+  CONFIG: readonly
+
 plugins:
 - babel
 - flowtype

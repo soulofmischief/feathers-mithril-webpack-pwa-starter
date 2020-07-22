@@ -1,14 +1,10 @@
-import paths from '../../../paths'
+import { paths } from '../../../paths'
+import { babelLoader } from './loaders'
 
 
 export const babel = {
   test: /\.(js)$/,
-  include: paths.client,
+  include: paths.client.root,
   exclude: /node_modules/,
-  use: {
-    loader: 'babel-loader',
-    options: {
-      cacheDirectory: true,
-    },
-  }
+  use: [ babelLoader ],
 }

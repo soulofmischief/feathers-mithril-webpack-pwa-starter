@@ -20,10 +20,10 @@ export async function createServer( app ) {
   if ( process.env.NODE_ENV === 'development' ) {
     server = https.createServer({
       key: await readFileAsync(
-        path.resolve( __dirname, process.env.SSL_PRIVATE_KEY )
+        path.resolve( __dirname, app.get( 'ssl' ).key )
       ),
       cert: await readFileAsync(
-        path.resolve( __dirname, process.env.SSL_CERTIFICATE )
+        path.resolve( __dirname, app.get( 'ssl' ).cert )
       ),
     }, app ).listen( port )
 

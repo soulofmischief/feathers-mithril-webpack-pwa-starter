@@ -1,6 +1,7 @@
 import path from 'path'
 import WebpackPwaManifest from 'webpack-pwa-manifest'
-import paths from '../../../paths'
+import { config } from '../../../config'
+import { paths } from '../../../paths'
 //import dotenv from 'dotenv-safe'
 
 
@@ -16,8 +17,8 @@ const manifestIconDir = 'icons-manifest'
 
 
 export default new WebpackPwaManifest({
-  name: process.env.APP_NAME,
-  short_name: process.env.APP_SHORTNAME,
+  name: config.get( 'app.name' ),
+  short_name: config.get( 'app.shortName' ),
   description: 'View and write messages with other users.',
 
   background_color: '#f2f2f2',

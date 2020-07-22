@@ -1,12 +1,14 @@
-import alias from '../../alias'
-import paths from '../../paths'
+import path from 'path'
+import { alias } from '../../alias'
+import { paths } from '../../paths'
 
 
 export const resolve = {
   alias,
   extensions: [ '.js', '.scss' ],
   modules: [
-    paths.client,
+    path.resolve( paths.root, 'node_modules' ),
+    paths.client.root,
     'node_modules'
   ],
 }

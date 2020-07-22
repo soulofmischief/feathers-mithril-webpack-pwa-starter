@@ -5,8 +5,8 @@ import feathers from '@feathersjs/client'
 import rx from 'feathers-reactive'
 
 
-const socket = io( process.env.BASE_URL, {
-  path: process.env.SOCKETIO_URL_V1
+const socket = io( CONFIG.url, {
+  path: CONFIG.proxy.socket
 })
 
 // Configure and export client
@@ -16,7 +16,7 @@ export const client = feathers()
 
   // Configure feathers-reactive
   .configure( rx({
-    idField: process.env.DATABASE_ID_FIELD,
+    idField: CONFIG.idField,
   }))
 
   // Use localStorage to hold authentication token

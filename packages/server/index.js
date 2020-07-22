@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { convertHRTime } from 'Rootlib/node'
+import { convertHRTime } from 'RootLib/node'
 import { app } from './app'
 import { createServer } from './createServer'
 

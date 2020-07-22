@@ -1,25 +1,26 @@
-//const config = require( 'config' )
-import './env'
+
+import { paths } from '../../paths'
 import { optimization } from './optimization'
 import { output } from './output'
 import { plugins } from './plugins'
 import { resolve }from './resolve'
 import { rules } from './rules'
-import paths from '../../paths'
 
 
-export const
-  devMode = process.env.NODE_ENV !== 'production',
-  name = 'Messages',
-  shortName = 'Messages',
-  title = 'Messages'
+
+export function webpackConfig(
+  env,
+  argv,
+  options = { name: '' }
+) {
+  const
+    devMode = argv.mode === 'production',
+    { name } = options
 
 
-export function webpackConfig() {
   return {
-    context: paths.client,
+    context: paths[ name ].root,
     entry: { app: './index.js' },
-    mode: process.env.NODE_ENV,
     module: { rules },
 
     node: {
@@ -27,9 +28,9 @@ export function webpackConfig() {
       perf_hooks: 'mock',
     },
 
-    optimization,
-    output,
-    plugins,
+    optimization: optimization( devMode ),
+    output: output( name ),
+    plugins: plugins( name ),
     resolve,
   }
 }

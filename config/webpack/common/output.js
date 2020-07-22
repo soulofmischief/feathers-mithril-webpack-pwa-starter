@@ -1,10 +1,11 @@
-import paths from '../../paths'
+import { config } from '../../config'
+import { paths } from '../../paths'
 
 
-export const output =  {
+export const output = name => ({
   chunkFilename: '[name].[chunkHash].js',
   filename: '[name].[hash].js',
   globalObject: 'this',
-  path: paths.output,
-  publicPath: process.env.ROOT || '/',
-}
+  path: paths.client.output,
+  publicPath: config.get( name ).root || '/',
+})

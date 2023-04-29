@@ -15,7 +15,7 @@
     "arr-union": "^3.1.0",
     "common-tags": "^1.8.0",
     "feathers-reactive": "^0.8.2",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.19",
     "mithril": "^2.0.4",
     "nanoid": "^3.1.10",
